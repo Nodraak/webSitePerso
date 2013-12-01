@@ -1,0 +1,46 @@
++--------------+
+|              |
+|  SITE ITEAM  |
+|              |
++--------------+
+
+=== ETAT DES LIEUX ===
+
+tuto / article cible (bordel dans les catégories pr le moment)
+	texte + images (+ video)
+	pas de timeline
+	meilleurs / plus populaire en avant
+
+	existant : 	ssh
+				choisir son mdp
+				wifi X3
+
+
+blog / article divers
+	texte + images (+ video)
+	timeline
+
+
+formations / évent (se transforme en article / tuto une fois passe)
+	timeline (+ inscription ?)
+	fichiers
+	infos : ou, quand, qui, ...
+
+
+(links)
+
+image not found http://www.iteam.org/vie-associative/comm/panneau-iteam.html (http://www.ece.fr/~mathieu/iTeam/nvx%20pano.bmp)
+
+=== CONCLUSION ===
+
++ : obligatoire | - : optionnel
+document {
+	interne (affiche)
+		+text (tuto : chap, paragraphes ... | blog : titres | formation : rien)
+		-image
+		-video
+	externe (en dl)
+		-fichiers
+	+classement popularite / date (mise en avant timeline ou popularité)
+	+-infos (ou, qui, quand ... -> formation : + | blog/tuto : -)
+}

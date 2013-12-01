@@ -1,0 +1,84 @@
+/*----------------------*\
+|                        |
+|   styles.css           |
+|   Par Adrien Chardon   |
+|                        |
+\*----------------------*/
+
+/*=== STYLE GENERAL ===*/
+body
+{
+	width: 800px;
+	margin: auto;
+	margin-top: 20px;
+	margin-bottom: 20px;
+	padding-right: 20px;
+	padding-left: 20px;
+
+	border: 3px solid rgb(192,192,192);
+	border-radius: 10px;
+}
+
+header, footer
+{
+	text-align: center;
+	padding: 10px;
+}
+
+#block_page
+{
+	border-top: 3px solid rgb(192,192,192);
+	border-bottom: 3px solid rgb(192,192,192);
+	padding: 20px;
+}
+
+/*=== STYLE MENU NAV ===*/
+nav
+{
+	display: inline-block;
+}
+
+nav li
+{
+	display: inline-block;
+	margin: 10px;
+}
+
+/*=== STYLE LIENS ===*/
+a:visited
+{
+	text-decoration: underline;
+	color: black;
+	background-color: white;
+}
+
+a
+{
+	text-decoration: underline;
+	color: black;
+}
+
+a:hover
+{
+	text-decoration: underline;
+	color: white;
+	background-color: black;
+}
+
+/*=== STYLE DIVERS ===*/
+.barre
+{
+	text-decoration: line-through;
+}
+
+h1, h2
+{
+	text-decoration: underline;
+}
+
+h1
+{
+	text-align: center;
+}
+
+

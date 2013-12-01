@@ -1,0 +1,117 @@
+/*----------------------*\
+|                        |
+|   styles.css           |
+|   Par Adrien Chardon   |
+|                        |
+\*----------------------*/
+
+@media screen and (max-width: 1024px)
+{
+	p
+	{
+		color: red;
+		background-color: black;
+		font-size: 1.2em;
+	}
+}
+
+
+.test
+{
+	text-align: center;
+	text-decoration: underline;
+	display: inline-block;
+}
+
+/*=== POLICE ===*/
+
+@font-face
+{
+	font-family: 'courier';
+	src: url('font/courier.ttf') format('truetype');
+	font-weight: normal;
+	font-style: normal;
+}
+
+/*=== STYLE GENERAL ===*/
+body
+{
+	font-family: 'courier';
+	/*background-color: black;
+	color: rgb(192,192,192);*/
+}
+
+header
+{
+	width: 1000px;
+	margin: auto;
+	padding: 12px;
+	border: 1px solid rgb(192,192,192);
+}
+
+#block_page
+{
+	width: 1000px;
+	margin: auto;
+	padding: 12px;
+	border: 1px solid rgb(192,192,192);
+	margin-top: 12px;
+}
+
+/*=== STYLE MENU NAV ===*/
+nav
+{
+	display: inline-block;
+	width: 1000px;
+	text-align: center;
+}
+
+/* usefull ? nor proved yet */
+nav ul
+{
+	list-style-type: none;
+}
+
+nav li
+{
+	display: inline-block;
+	margin-right: 15px;
+}
+
+/*=== STYLE LIENS ===*/
+a:visited
+{
+	text-decoration: underline;
+	color: rgb(192,192,192);
+	background-color: black;
+}
+
+a
+{
+	text-decoration: underline;
+	color: rgb(192,192,192);
+}
+
+a:hover
+{
+	text-decoration: underline;
+	color: black;
+	background-color: rgb(192,192,192);
+}
+
+/*=== STYLE DIVERS ===*/
+.barre
+{
+	text-decoration: line-through;
+}
+
+h1, h2
+{
+	text-decoration: underline;
+}
+
+h1
+{
+	text-align: center;
+}
+

@@ -1,0 +1,6 @@
+
+renvoi du mdp + changer le mdp + update infos
+page users -> (gr)avatar
+edit
+
+

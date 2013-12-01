@@ -1,0 +1,191 @@
+/*----------------------*\
+|                        |
+|   styles.css           |
+|   Par Adrien Chardon   |
+|                        |
+\*----------------------*/
+
+/*=== STYLE GENERAL ===*/
+body
+{
+	border-radius: 10px;
+	width: 800px;
+	margin: auto;
+
+	border: 3px solid rgb(128, 128, 128);
+	margin-top: 20px;
+	margin-bottom: 20px;
+}
+
+header, footer
+{
+	text-align: center;
+}
+
+footer
+{
+	font-size: small;
+}
+
+#block_page
+{
+	border-top: 3px solid rgb(128 ,128, 128);
+	border-bottom: 3px solid rgb(128, 128, 128);
+
+	padding: 10px;
+	margin: 10px;
+}
+
+/*=== STYLE MENU NAV ===*/
+nav li
+{
+	display: inline-block;
+	text-align: center;
+	margin-right: 20px;
+	margin-left: 20px;
+}
+
+/*=== STYLE LIENS ===*/
+a, a:visited
+{
+	text-decoration: underline;
+	color: black;
+}
+
+nav a:hover
+{
+	text-decoration: underline;
+	color: white;
+	background-color: rgb(92, 92, 92);
+}
+
+
+
+/*=== STYLE DIVERS ===*/
+.barre
+{
+	text-decoration: line-through;
+}
+
+.center, h1
+{
+	text-align: center;
+}
+
+h1, h2
+{
+	text-decoration: underline;
+}
+
+/*======================*/
+
+/* general */
+.message table, .thread table, .user table
+{
+	border-collapse: collapse;
+	width: 100%;
+}
+
+.message td, .thread td
+{
+	padding: 10px;
+	border: 1px solid black;
+}
+
+.user td
+{
+	padding: 10px;
+}
+
+.message, .thread, .user
+{
+	margin: 10px;	
+}
+
+.time
+{
+	font-size: small;
+}
+
+/* message */
+.texte
+{
+	text-align: justify;
+	width: 100%;
+}
+
+.message .auteur, .message .avatar
+{
+	min-width: 100px;
+	text-align: center;
+	font-weight: bold;
+}
+
+.message .auteur, .message .time
+{
+	background-color: rgb(128,128,255);
+}
+
+.message .avatar, .message .texte
+{
+	vertical-align: top;
+	background-color: rgb(200,200,255);
+}
+
+/* thread */
+.thread .time
+{
+	text-align: right;
+	white-space : nowrap;
+	background-color: rgb(200,200,255);
+}
+
+.thread .title
+{
+	width: 100%;
+	font-weight: bold;
+}
+
+.thread .title, .thread .time_activity
+{
+	background-color: rgb(128,128,255);
+}
+
+.thread .auteur, .thread .time_created
+{
+	background-color: rgb(200,200,255);
+}
+
+/*=== FORM ===*/
+
+.post_message
+{
+	text-align: center;
+	font-weight: bold;
+}
+
+.create_thread
+{
+	font-weight: bold;
+}
+
+/*=========================*/
+
+input, textarea, input[type=submit]
+{
+	font-size: 14px;
+}
+
+.important
+{
+	color: red;
+}
+
+.new_subject
+{
+	margin-left: 15px;
+	position: relative;
+	top: -30px;
+}
+
+
