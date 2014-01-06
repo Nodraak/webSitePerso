@@ -1,34 +1,31 @@
-<?php include('options.php'); ?>
+<?php include_once('modele/init.php'); ?>
 
 <!DOCTYPE html>
 <html>
 	<head>
-		<title>Page perso d'Adrien !</title>
-		<link rel="stylesheet" href="styles.css" />
-		<?php include('head.php'); ?>
+		<title>Page perso d'Adrien ! - Chat</title>
+		<?php include_once('vue/head.php'); ?>
 	</head>
 
 	<body>
-		<?php include('header.php'); ?>
+		<?php include_once('vue/header.php'); ?>
 
 		<div id=block_page>
-			<h1>Accueil</h1>
-
-			<h2>Bienvenue cher visiteur !</h2>
-			<p>Bonjour, comment allez vous ?</p>
 			<?php
-				if (isset($_SESSION['pseudo'])) // yet logged
+				if (!empty($_GET['page']) && is_file('controleur/'.$_GET['page'].'.php'))
 				{
-					echo '<p>Vous êtes actuellement connecté en tant que <strong>'.$_SESSION['pseudo'].'</strong>.</p>';
+					if (!isset($_SESSION['pseudo']) && strcmp($_GET['page'], 'login') != 0 && strcmp($_GET['page'], 'signup') != 0)
+						echo '<p class="alert_ko">Vous n\'êtes pas autorisé a accéder à cette page, merci de vous connecter.</p>';
+					else
+						include_once('controleur/'.$_GET['page'].'.php');	
 				}
-				else // not logged yet
+				else
 				{
-					echo '<p>Vous n\'êtes actuellement pas connecté. Vous pouvez vous connecter en <a href="login.php">cliquant ici</a>.</p>';
+					include_once('controleur/home.php');
 				}
 			?>
-
 		</div>
 
-		<?php include('footer.php'); ?>
+		<?php include_once('vue/footer.php'); ?>
 	</body>
 </html>

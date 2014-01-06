@@ -5,10 +5,49 @@
 |                        |
 \*----------------------*/
 
+table
+{
+	border-collapse: collapse;
+}
+
+td, th
+{
+	border: 1px solid black;
+	min-width: 75px;
+	overflow: hidden; /* doesnt work */
+	padding: 5px;
+}
+
+table .nb
+{
+	text-align: right;
+}
+
+table .ratio
+{
+	text-align: center;
+	/*border-right: 2px double black;*/
+}
+
+/*========*/
+
+.colorRed
+{
+	color: rgb(192, 0, 0);
+}
+
+.colorGreen
+{
+	color: rgb(0, 192, 0);
+}
+
+
+
+
 /*=== STYLE GENERAL ===*/
 body
 {
-	width: 800px;
+	width: 1000px;
 	margin: auto;
 	margin-top: 20px;
 	margin-bottom: 20px;
@@ -33,12 +72,12 @@ header, footer
 }
 
 /*=== STYLE MENU NAV ===*/
-nav
+.menu
 {
 	display: inline-block;
 }
 
-nav li
+.menu li
 {
 	display: inline-block;
 	margin: 10px;
@@ -69,6 +108,11 @@ a:hover
 .barre
 {
 	text-decoration: line-through;
+}
+
+.center
+{
+	text-align: center;
 }
 
 h1, h2

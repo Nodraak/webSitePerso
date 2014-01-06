@@ -1,0 +1,27 @@
+/*----------------------*\
+|                        |
+|		new_thread.css       |
+|   Par Adrien Chardon   |
+|                        |
+\*----------------------*/
+
+form
+{
+	padding: 10px;
+	margin: 10px;
+	text-align: center;
+}
+
+td
+{	
+	display: inline-block;
+	width: 100%;
+	margin: auto;
+}
+
+tr
+{
+	display: inline-block;
+}
+
+

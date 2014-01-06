@@ -33,9 +33,12 @@
 
 			<h2>C'est quoi ce site ?</h2>
 			<p>Un site perso qui va me permettre d'apprendre le HTML, le CSS et
-				peut-être d'autres langages web.</p>
+				peut-être d'autre langages web.</p>
 
 			<h2>Et il parle de quoi ton site ?</h2>
+			<p>Comme il faut bien trouver un sujet, ce sera l'informatique et la
+				programmation. Bah oui je suis pas a l'ECE pour rien !
+				J'y mettrais des choses que je juge utiles, comme :</p>
 			<p>
 				<ul>
 					<li><a href=chat/index.php>miaou</a> (vous aurez compris : chat).

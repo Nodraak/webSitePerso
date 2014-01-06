@@ -1,0 +1,169 @@
+/*----------------------*\
+|                        |
+|   message.css          |
+|   Jan 2014             |
+|   Adrien Chardon       |
+|                        |
+\*----------------------*/
+
+
+/*=== style ===*/
+.italic
+{
+	font-style: italic;
+}
+
+.bold
+{
+	font-weight: bold;
+}
+
+.underline
+{
+	text-decoration: underline;
+}
+
+.barre
+{
+	text-decoration: line-through;
+}
+
+.center
+{
+	text-align: center;
+}
+
+.fontSize1
+{
+	font-size: small;
+}
+.fontSize2
+{
+	font-size: x-large;
+}
+.fontSize3
+{
+	font-size: xx-large;
+}
+
+/*=== smiley ===**/
+.smiley_p
+{
+	position: relative;
+	top: 5px;
+}
+
+.smiley_p:before
+{
+	content: url(../img/smiley_p.png) " ";
+}
+
+
+
+/*=== general ===*/
+
+table
+{
+	width: 100%;
+	border-collapse: collapse;
+	margin: 15px;
+}
+
+.author
+{
+	border-radius: 20px 0 0 0;
+}
+.time
+{
+	border-radius: 0 20px 0 0;
+}
+.textSignBorder
+{
+	border-radius: 0 0 20px 0;
+}
+.avatar
+{
+	border-radius: 0 0 0 20px;
+}
+
+.topBar
+{
+	background-color: rgb(128, 128, 255);  
+}
+.content
+{
+	background-color: rgb(200, 200, 255);
+}
+/*=== ===*/
+
+.author, .time, .text, .sign
+{
+	padding: 10px;
+	margin: 0;
+}
+
+.author, .time
+{
+	border-bottom: 1px solid black;
+}
+
+.author, .avatar
+{
+	border-right: 1px solid black;
+}
+
+.sign
+{
+	border-top: 1px solid black;
+}
+
+/*=== ===*/
+
+.author
+{
+	width: 100px;
+	text-align: center;
+	font-weight: bold;
+}
+
+.time
+{
+	font-size: small;
+}
+
+.avatar
+{
+	text-align: center;
+	vertical-align: top;
+	padding-top: 15px;
+}
+
+.textSign
+{
+	min-height: 115px;
+	position: relative;
+}
+
+.text
+{
+	text-align: justify;
+}
+
+.paddingTextSign
+{
+	height: 35px;
+}
+
+.sign
+{
+	font-size: small;
+	position: absolute;
+	bottom: 0;
+	width: 100%;
+	box-sizing: border-box;
+	max-height: 30px;
+	padding: 5px;
+	overflow: hidden;
+}
+
+

@@ -1,0 +1,64 @@
+/*----------------------*\
+|                        |
+|   forum.css            |
+|   Jan 2014             |
+|   Adrien Chardon       |
+|                        |
+\*----------------------*/
+
+.thread table {border-collapse: collapse;}
+
+.thread td {padding: 15px;}
+
+.thread
+{
+	margin-top: 15px;
+}
+
+.time {font-size: small;}
+
+.thread .time_activity, .thread .time_created
+{
+	text-align: right;
+	white-space : nowrap;
+}
+
+.thread .title
+{
+	width: 100%;
+	font-weight: bold;
+}
+
+.thread .title, .thread .time_activity
+{
+	background-color: rgb(128,128,255);
+}
+
+.thread .auteur, .thread .time_created
+{
+	background-color: rgb(192,192,255);
+}
+
+.thread .title, .thread .time_activity
+{
+	border-bottom: 1px solid black;
+}
+
+/* radius border */
+.thread .title
+{
+    border-radius: 10px 0 0 0;
+}
+.thread .time_activity
+{
+    border-radius: 0 10px 0 0;
+}
+.thread .time_created
+{
+    border-radius: 0 0 10px 0;
+}
+.thread .auteur
+{
+    border-radius: 0 0 0 10px;
+}
+

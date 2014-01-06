@@ -1,0 +1,14 @@
+/*----------------------*\
+|                        |
+|		user.css         	   |
+|   Jan 2014             |
+|   Adrien Chardon   	   |
+|                        |
+\*----------------------*/
+
+.col1, .col2
+{
+	display: inline-block;
+	vertical-align: top;
+}
+

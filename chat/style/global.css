@@ -1,0 +1,136 @@
+/*----------------------*\
+|                        |
+|   global.css           |
+|   Jan 2014             |
+|   Adrien Chardon       |
+|                        |
+\*----------------------*/
+
+
+/*=== HEADER - FOOTER ===*/
+.left, .middle, .right
+{
+	float: left;
+	height: 100%;
+}
+
+.left, .right
+{
+	width: 25%;
+}
+
+.middle
+{
+	width: 50%;
+	background-color: rgb(128, 128, 255);
+}
+
+.left
+{
+	background-image: linear-gradient(to right, white, rgb(128, 128, 255));
+}
+
+.right
+{
+	background-image: linear-gradient(to left, white, rgb(128, 128, 255));
+}
+
+header li
+{
+	display: inline-block;
+	padding: 10px;
+	vertical-align: middle;
+}
+
+/*=== STYLE GENERAL ===*/
+body
+{
+	width: 90%;	
+	margin: auto;
+}
+
+header
+{
+  border-bottom: 5px solid rgb(128, 128, 128);
+	height: 75px;
+}
+
+footer
+{
+	border-top: 5px solid rgb(128 ,128, 128);	
+	height: 50px;
+}
+
+#block_page
+{
+  width: 750px;
+	margin: auto;
+	padding: 50px;
+}
+
+/*=== STYLE LIENS ===*/
+a, a:visited, a:hover
+{
+	text-decoration: underline;
+}
+
+a, a:visited
+{
+	color: black;
+}
+
+a:hover
+{
+	color: white;
+	background-color: rgb(64, 64, 92);
+}
+
+/*=== STYLE DIVERS ===*/
+.barre
+{
+	text-decoration: line-through;
+}
+
+.center, h1
+{
+	text-align: center;
+}
+
+h1, h2
+{
+	text-decoration: underline;
+}
+
+input, textarea, input[type=submit]
+{
+	font-size: 14px;
+}
+
+/*=========================*/
+
+.alert_ok:before, .alert_ko:before
+{
+	position: relative;
+	top: 10px;
+}
+
+.alert_ok
+{
+	color: green;
+}
+
+.alert_ko
+{
+	color: red;
+}
+
+.alert_ok:before
+{
+	content: url(../img/ok.jpg) " ";
+}
+
+.alert_ko:before
+{
+	content: url(../img/ko.jpeg) " ";
+}
+
