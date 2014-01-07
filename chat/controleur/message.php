@@ -50,7 +50,7 @@
 
 						// edit link
 						if ($author_id == $_SESSION['id'])
-							$edit = '<div class="edit"><a href="?page=edit&id='.$data['id'].'">Editer le message</a></div>';
+							$edit = '<div class="edit"><a href="?page=edit_msg&id='.$data['id'].'">Editer le message</a></div>';
 						else
 							$edit = '';
 

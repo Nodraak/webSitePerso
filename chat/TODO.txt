@@ -1,12 +1,14 @@
 === TO DO ===
 
 mdp oublie
-update infos (pseudo, mdp, mail, avatar)
-
-page user : stat : nb msg postes, nb thread crees
-list user : filtre - recherche // osef si pas bcp de users
-
-+1 / utile
+update infos (pseudo, mdp, mail, avatar) - 50% done
 
 css new_thread (voir head.php)
+
++1 / utile
+page user : stat : nb msg postes, nb thread crees - osef
+list user : filtre - recherche // osef si pas bcp de users
+
+=== DONE ===
+7 jan 2014 : edit msg
 

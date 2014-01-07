@@ -2,6 +2,8 @@
 	include_once('modele/init.php');
 	include_once('modele/signup.php');
 
+	echo'<h2>Bienvenue futur membre !</h2>';
+
 	// form envoyé
 	if (isset($_POST['pseudo']) AND isset($_POST['pass']) AND isset($_POST['passre']) AND isset($_POST['mail']))
 	{
@@ -29,8 +31,8 @@
 			$req = $bdd->prepare('INSERT INTO users(pseudo, pass, mail, signedup) VALUES(:pseudo, :pass, :mail, NOW())');
 			$req->execute(array('pseudo' => $_POST['pseudo'], 'pass' => $pass_hache, 'mail' => $_POST['mail']));
 							
-			echo '<p class="alert_ok">Votre compte a bien été créé.<br />
-						Vous pouvez maintenant vous connecter en <a href="index.php?page=login">cliquant ici</a>.</p>';
+			echo '<p class="alert_ok">Votre compte a bien été créé.</p>
+						<p>Vous pouvez maintenant vous connecter en <a href="index.php?page=login">cliquant ici</a>.</p>';
 		}
 	}
 	else // premiere visite de la page

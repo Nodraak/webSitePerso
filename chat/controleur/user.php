@@ -12,8 +12,17 @@
 		$req_data = $req->fetch();
 
 		echo '<h2>Membre : '.$req_data['pseudo'].'</h2>';
+	
+		if ($_GET['id'] == $_SESSION['id'])
+			echo '<p><a href="?page=edit_user&id='.$_GET['id'].'">Editer le profil</a></p>';
 
-		echo '<div class="user">
+		if (empty($req_data))
+		{
+			echo '<p class="alert_ko">Ereur, le membre n\'a pas été trouvé.</p>';
+		}
+		else
+		{
+			echo '<div class="user">
 						<div class="col1">
 							<table>
 								<tr>
@@ -35,6 +44,7 @@
 							</table>
 						</div>
 					</div>';
+		}
 	}
 	else
 	{
