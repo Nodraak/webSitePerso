@@ -27,7 +27,7 @@
 					$title = $req_title->fetch();
 					echo '<h2>'.$title['title'].'</h2>';
 
-					$ret = $bdd->prepare('SELECT author, posted, text FROM messages WHERE thread = :thread');
+					$ret = $bdd->prepare('SELECT author, posted, text, id FROM messages WHERE thread = :thread');
 					$ret->execute(array('thread' => $_GET['id']));
 
 					while ($data = $ret->fetch())
@@ -42,17 +42,23 @@
 						$req_author_data = $req_author->fetch();
 						$author = $req_author_data['pseudo'];
 
-
+						// user sign
 						if(empty($req_author_data['sign']))
 							$sign = '';
 						else
 							$sign = '<div class="paddingTextSign"></div><div class="sign">'.ft_parse_text($req_author_data['sign']).'</div>';
 
+						// edit link
+						if ($author_id == $_SESSION['id'])
+							$edit = '<div class="edit"><a href="?page=edit&id='.$data['id'].'">Editer le message</a></div>';
+						else
+							$edit = '';
+
 						echo '
 						<table>
 							<tr class="topBar">
 								<td class="author"><a href="index.php?page=user&id='.$author_id.'">'.$author.'</a></td>
-								<td class="time">Posté le '.date('d/m/Y à H\hi', $posted).'</td>
+								<td class="timeEdit"><div class="time">Posté (ou édité) le '.date('d/m/Y à H\hi', $posted).'</div>'.$edit.'</td>
 							</tr>
 							<tr class="content">
 								<td class="avatar"><img src='.$grav_url.'alt=pseudo gravatar /></td>

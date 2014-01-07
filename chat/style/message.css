@@ -73,7 +73,7 @@ table
 {
 	border-radius: 20px 0 0 0;
 }
-.time
+.timeEdit
 {
 	border-radius: 0 20px 0 0;
 }
@@ -96,13 +96,13 @@ table
 }
 /*=== ===*/
 
-.author, .time, .text, .sign
+.author, .timeEdit, .text, .sign
 {
 	padding: 10px;
 	margin: 0;
 }
 
-.author, .time
+.author, .timeEdit
 {
 	border-bottom: 1px solid black;
 }
@@ -164,6 +164,24 @@ table
 	max-height: 30px;
 	padding: 5px;
 	overflow: hidden;
+}
+
+.time, .edit
+{
+	display: inline-block;
+}
+
+.edit
+{
+	position: absolute;
+	right: 0;
+	padding-right: 10px;
+	font-size: medium;
+}
+
+.timeEdit
+{
+	position: relative;
 }
 
 

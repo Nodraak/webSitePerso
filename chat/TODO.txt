@@ -2,10 +2,11 @@
 
 mdp oublie
 update infos (pseudo, mdp, mail, avatar)
-edit message
 
 page user : stat : nb msg postes, nb thread crees
 list user : filtre - recherche // osef si pas bcp de users
 
 +1 / utile
+
+css new_thread (voir head.php)
 
