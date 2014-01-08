@@ -1,0 +1,28 @@
+/*----------------------*\
+|                        |
+|		form.css             |
+|   Jan 2014             |
+|		Adrien Chardon       |
+|                        |
+\*----------------------*/
+
+.post_message form
+{
+	padding: 10px;
+	margin: 10px;
+	text-align: center;
+}
+
+.post_message td
+{	
+	display: inline-block;
+	width: 100%;
+	margin: auto;
+}
+
+.post_message tr
+{
+	display: inline-block;
+}
+
+
