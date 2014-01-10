@@ -14,7 +14,7 @@
 			<?php
 				if (!empty($_GET['page']) && is_file('controleur/'.$_GET['page'].'.php'))
 				{
-					if (!isset($_SESSION['pseudo']) && strcmp($_GET['page'], 'login') != 0 && strcmp($_GET['page'], 'signup') != 0)
+					if (!isset($_SESSION['pseudo']) && !in_array($_GET['page'], $page_acces_not_logged))
 						echo '<p class="alert_ko">Vous n\'êtes pas autorisé a accéder à cette page, merci de vous connecter.</p>';
 					else
 						include_once('controleur/'.$_GET['page'].'.php');	

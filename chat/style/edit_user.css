@@ -1,0 +1,30 @@
+/*----------------------*\
+|                        |
+|   edit_user.css        |
+|   Jan 2014             |
+|   Adrien Chardon       |
+|                        |
+\*----------------------*/
+
+/*
+.form
+{
+	position: relative;
+}
+
+
+.input
+{
+	position: absolute;
+	left: -50px;
+}
+*/
+
+.title
+{
+	font-weight: bold;
+	text-decoration: underline;
+}
+
+
+

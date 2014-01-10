@@ -1,6 +1,8 @@
 <?php
 	include_once('modele/init.php');
+	include_once('modele/forum.php');
 	include_once('modele/message.php');
+	include_once('modele/membre.php');
 
 	if (isset($_GET['error']) && $_GET['error'] != 0)
 	{
@@ -10,7 +12,7 @@
 	{
 				if (isset($_GET['error']) && $_GET['error'] == 0)
 				{
-					echo '<p class="alert_ok">Votre message a bien été posté.</p>';
+					echo '<p class="alert_ok">Votre message a bien été posté (ou édité).</p>';
 				}
 
 				if (!isset($_GET['id']))
@@ -21,57 +23,35 @@
 				else
 				{
 					$bdd = ft_connect_bdd();
-
-					$req_title = $bdd->prepare('SELECT title FROM threads WHERE id = ?');
-					$req_title->execute(array($_GET['id']));
-					$title = $req_title->fetch();
-					echo '<h2>'.$title['title'].'</h2>';
-
-					$ret = $bdd->prepare('SELECT author, posted, text, id FROM messages WHERE thread = :thread');
+					$forum = new Forum($_GET['id']);
+					$ret = $bdd->prepare('SELECT id FROM messages WHERE thread = :thread');
 					$ret->execute(array('thread' => $_GET['id']));
+
+					echo '<h2>'.$forum->get_title().'</h2>';
 
 					while ($data = $ret->fetch())
 					{
-						$text = ft_parse_text($data['text']);
-						$author_id = $data['author'];
-						$posted = strtotime($data['posted']);
-						$grav_url = 'http://www.gravatar.com/avatar/'.md5(strtolower(trim($author_id))).'?d=identicon&s=80';
-
-						$req_author = $bdd->prepare('SELECT pseudo, sign FROM users WHERE id = :id');
-						$req_author->execute(array('id' => $author_id));
-						$req_author_data = $req_author->fetch();
-						$author = $req_author_data['pseudo'];
-
-						// user sign
-						if(empty($req_author_data['sign']))
-							$sign = '';
-						else
-							$sign = '<div class="paddingTextSign"></div><div class="sign">'.ft_parse_text($req_author_data['sign']).'</div>';
-
-						// edit link
-						if ($author_id == $_SESSION['id'])
-							$edit = '<div class="edit"><a href="?page=edit_msg&id='.$data['id'].'">Editer le message</a></div>';
-						else
-							$edit = '';
-
+						$message = new Message($data['id']);
+						$author = new Membre($message->get_author());
+						
 						echo '
 						<table>
 							<tr class="topBar">
-								<td class="author"><a href="index.php?page=user&id='.$author_id.'">'.$author.'</a></td>
-								<td class="timeEdit"><div class="time">Posté (ou édité) le '.date('d/m/Y à H\hi', $posted).'</div>'.$edit.'</td>
+								<td class="author"><a href="index.php?page=user&id='.$message->get_author().'">'.$author->get_pseudo().'</a></td>
+								<td class="timeEdit">
+									<div class="time">Posté (ou édité) le '.date('d/m/Y à H\hi', $message->get_posted()).'</div>'
+									.$author->get_edit($message).'</td>
 							</tr>
 							<tr class="content">
-								<td class="avatar"><img src='.$grav_url.'alt=pseudo gravatar /></td>
+								<td class="avatar"><img src="'.$author->get_avatar(80).'" alt="pseudo gravatar" /></td>
 								<td class="textSignBorder">
 									<div class="textSign">
-										<div class="text">'.$text.'</div>
-										'.$sign.'
+										<div class="text">'.$message->get_text().'</div>
+										'.$author->get_sign().'
 									</div>
 								</td>
 							</tr>
 						</table>';
-
-						$req_author->closeCursor();
 					}
 
 					$ret->closeCursor();
