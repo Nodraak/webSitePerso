@@ -1,5 +1,17 @@
-
 <?php
+
+/******************************************************************************* 
+*
+*   File : message.php
+*
+*   Author : Adrien Chardon
+*   Date :   2014-01-11 19:35:28
+*
+*   Last Modified by :   Adrien Chardon
+*   Last Modified time : 2014-01-11 19:36:29
+*
+*******************************************************************************/
+
 	include_once('modele/init.php');
 
 	class Message
@@ -86,6 +98,13 @@
 			$req = $bdd->prepare('UPDATE threads SET activity = NOW() WHERE id = ?');
 			$req->execute(array($this->get_thread()));
 		}
+		public function update_thread_nbMessage()
+		{
+			$bdd = ft_connect_bdd();
+
+			$req = $bdd->prepare('UPDATE threads SET nbMessage = nbMessage+1 WHERE id = ?');
+			$req->execute(array($this->get_thread()));
+		}
 		public function post_message($thread_id, $text)
 		{
 			$bdd = ft_connect_bdd();
@@ -99,6 +118,7 @@
 			$this->__construct($id);
 
 			$this->update_thread_activity();
+			$this->update_thread_nbMessage();
 		}
 		public function edit_message($text)
 		{

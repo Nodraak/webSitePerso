@@ -55,7 +55,7 @@ class Membre
 	}
 	public function get_mail()
 	{
-		return $this->mail;
+		return substr($this->pseudo, 0, 40);
 	}
 	public function get_sign()
 	{

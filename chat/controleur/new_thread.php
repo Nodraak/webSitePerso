@@ -1,4 +1,17 @@
 <?php
+
+/******************************************************************************* 
+*
+*   File : new_thread.php
+*
+*   Author : Adrien Chardon
+*   Date :   2014-01-11 19:34:21
+*
+*   Last Modified by :   Adrien Chardon
+*   Last Modified time : 2014-01-11 19:36:47
+*
+*******************************************************************************/
+
 	include_once('modele/init.php');
 	include_once('modele/message.php');
 
@@ -13,7 +26,7 @@
 		$bdd = ft_connect_bdd();
 
 		// create thread
-		$req = $bdd->prepare('INSERT INTO threads (created, owner, title) VALUES(NOW(), ?, ?)');
+		$req = $bdd->prepare('INSERT INTO threads (created, owner, title, nbMessage) VALUES(NOW(), ?, ?, 1)');
 		$req->execute(array($_SESSION['id'], $_POST['title']));
 		$thread_id = $bdd->lastInsertId();
 

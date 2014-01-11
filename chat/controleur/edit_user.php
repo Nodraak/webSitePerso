@@ -1,4 +1,17 @@
 <?php
+
+/******************************************************************************* 
+*
+*   File : edit_user.php
+*
+*   Author : Adrien Chardon
+*   Date :   2014-01-11 19:14:21
+*
+*   Last Modified by :   Adrien Chardon
+*   Last Modified time : 2014-01-11 19:23:25
+*
+*******************************************************************************/
+
 	include_once('modele/init.php');
 	include_once('modele/membre.php');
 
@@ -26,14 +39,14 @@
 					<form method="post" action="index.php?page=edit_user&id='.$membre->get_id().'">
 						<label for="pseudo"><span class="title">Pseudo :</span></label><br />
 						<input type="text" name="pseudo" id="pseudo" value="'.$membre->get_pseudo().'"><br />
-						<input type="submit" value="Mettre à jour les informations" />
+						<input type="submit" value="Mettre à jour le pseudo" />
 					</form>
 				</p>
 				<p>
 					<form method="post" action="index.php?page=edit_user&id='.$membre->get_id().'">
 						<label for="mail"><span class="title">Adresse email :</span></label><br />
 						<input type="email" name="mail" id="mail" size="40" value="'.$membre->get_mail().'"/><br />
-						<input type="submit" value="Mettre à jour les informations" />
+						<input type="submit" value="Mettre à jour l\'adresse email" />
 					</form>
 				</p>
 				<p>
@@ -42,15 +55,15 @@
 						<input type="password" name="pass" id="pass" /><br />
 						<label for="passre">Vérification :</label><br />
 						<input type="password" name="passre" id="passre" /><br />
-						<input type="submit" value="Mettre à jour les informations" />
+						<input type="submit" value="Mettre à jour le mot de passe" />
 					</form>		
 				</p>
 				<p>
 					<form method="post" action="index.php?page=edit_user&id='.$membre->get_id().'" enctype="multipart/form-data">
                 		<label for="avatar"><span class="title">Avatar :</span>	</label><br />
-                		Image png, jpg ou gif, de 1 Mo maximum, de 100*100 px maximum.<br />
+                		Image png, jpg ou gif, de 50 ko maximum, de 200*200 px maximum.<br />
                 		<input type="file" name="avatar" id="avatar" required /><br />
-                		<input type="submit" value="Mettre à jour les informations" />
+                		<input type="submit" value="Mettre à jour l\'avatar" />
 					</form>
 				</p>';
 		}
@@ -97,7 +110,7 @@
 			if ($_FILES['avatar']['error'] != 0)
 				echo '<p>Erreur (code = server : '.$_FILES['avatar']['error'].')</p>', $nbError++;
 
-			if ($_FILES['avatar']['size'] > 1048576)
+			if ($_FILES['avatar']['size'] > 100000)
 				echo '<p>Erreur (code = size_bytes)</p>', $nbError++;
 
 			$extensions_valides = array('jpg', 'jpeg', 'gif', 'png');
@@ -108,7 +121,7 @@
 			if ($nbError == 0)
 			{
 				$image_sizes = getimagesize($_FILES['avatar']['tmp_name']);
-				if ($image_sizes[0] > 100 || $image_sizes[1] > 100)
+				if ($image_sizes[0] > 200 || $image_sizes[1] > 200)
 					echo '<p>Erreur (code = size_px)</p>', $nbError++;
 
 				if ($nbError == 0)
