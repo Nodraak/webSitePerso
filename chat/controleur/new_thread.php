@@ -1,44 +1,27 @@
 <?php
 	include_once('modele/init.php');
+	include_once('modele/message.php');
 
+	// show post form
 	if (!isset($_POST['title']) || !isset($_POST['text']))
 	{
-		echo '<p><form method="post" action="index.php?page=new_thread">
-						<table>
-							<tr>
-								<td><label for="title">Titre du sujet :</label></td>
-							</tr><tr>
-								<td><input type="text" name="title" id="title" size="99" required /></td>
-							</tr><tr>
-								<td><label for="text">Votre message :</label></td>
-							</tr><tr>
-								<td><textarea name="text" id="text" rows=10 cols=75 required></textarea></td>
-							</tr><tr>
-								<td class="center"><input type="submit" value="Créer le sujet" /></td>
-							</tr>
-						</table>
-					</form><p>';
+		include_once('vue/new_thread.php');
 	}
+	// post data
 	else
 	{
 		$bdd = ft_connect_bdd();
 
 		// create thread
-		$req = $bdd->prepare('INSERT INTO threads (created, owner, title, activity) VALUES(NOW(), ?, ?, NOW())');
+		$req = $bdd->prepare('INSERT INTO threads (created, owner, title) VALUES(NOW(), ?, ?)');
 		$req->execute(array($_SESSION['id'], $_POST['title']));
 		$thread_id = $bdd->lastInsertId();
 
-		// post message
-		$req = $bdd->prepare('INSERT INTO messages (posted, thread, author, text) VALUES(NOW(), ?, ?, ?)');
-		$req->execute(array($thread_id, $_SESSION['id'], $_POST['text']));
-		
-		// update thread last activity
-		$req_msg_id = $bdd->prepare('UPDATE threads SET activity = NOW() WHERE id = ?');
-		$req_msg_id->execute(array($thread_id));
+		// post msg
+		$message = new Message();
+		$message->post_message($thread_id, $_POST['text']);
 
 		header('Location: index.php?page=message&id='.$thread_id.'&error=0');
-		exit();
-
 	}
 
 ?>

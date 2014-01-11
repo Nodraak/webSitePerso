@@ -11,7 +11,7 @@ class Membre
 	private $mail;
 	private $sign;
 	private $avatar;
-	private $isValid;
+	public $isValid;
 
 	/* */
 	public function __construct($id)
@@ -47,7 +47,7 @@ class Membre
 	}
 	public function get_pseudo()
 	{
-		return $this->pseudo;
+		return substr($this->pseudo, 0, 10);
 	}
 	public function get_signedup()
 	{

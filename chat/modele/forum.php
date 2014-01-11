@@ -1,4 +1,3 @@
-
 <?php
 	include_once('modele/init.php');
 
@@ -62,4 +61,3 @@
 
 	}
 ?>
-
