@@ -1,4 +1,17 @@
 <?php
+
+/******************************************************************************* 
+*
+*   File : login.php
+*
+*   Author : Adrien Chardon
+*   Date :   2014-01-11 12:01:59
+*
+*   Last Modified by :   Adrien Chardon
+*   Last Modified time : 2014-01-11 19:50:17
+*
+*******************************************************************************/
+
 	include_once('modele/init.php');
 	include_once('modele/login.php');
 
@@ -22,6 +35,10 @@
 		{
 			$_SESSION['id'] = $resultat['id'];
 			$_SESSION['pseudo'] = $_POST['pseudo'];
+
+			$req = $bdd->prepare('UPDATE users SET lastCo = NOW() WHERE id = ?');
+			$req->execute(array($_SESSION['id']));
+
 			header('Location: index.php');
 		}
 	}

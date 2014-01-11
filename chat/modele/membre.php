@@ -1,6 +1,18 @@
-
 <?php
-	include_once('modele/init.php');
+
+/******************************************************************************* 
+*
+*   File : membre.php
+*
+*   Author : Adrien Chardon
+*   Date :   2014-01-11 19:24:43
+*
+*   Last Modified by :   Adrien Chardon
+*   Last Modified time : 2014-01-11 19:53:30
+*
+*******************************************************************************/
+
+include_once('modele/init.php');
 
 class Membre
 {
@@ -11,6 +23,7 @@ class Membre
 	private $mail;
 	private $sign;
 	private $avatar; // gravatar url
+	private $lastCo;
 	public $isValid;
 
 	/* */
@@ -19,7 +32,7 @@ class Membre
 		if (!empty($id))
 		{
 			$bdd = ft_connect_bdd();
-			$req = $bdd->prepare('SELECT pseudo, mail, signedup, sign FROM users WHERE id = :id');
+			$req = $bdd->prepare('SELECT pseudo, mail, signedup, sign, lastCo FROM users WHERE id = :id');
 			$req->execute(array('id' => $id));
 			$data = $req->fetch();
 	
@@ -31,6 +44,7 @@ class Membre
 				$this->set_mail($data['mail']);
 				$this->set_sign($data['sign']);
 				$this->set_avatar($id);
+				$this->lastCo = $data['lastCo'];
 				$this->isValid = 1;
 			}
 			else
@@ -78,6 +92,10 @@ class Membre
 	public function is_valid()
 	{
 		return $this->isValid;
+	}
+	public function get_lastCo()
+	{
+		return $this->lastCo;
 	}
 
 	/* SETTER */
