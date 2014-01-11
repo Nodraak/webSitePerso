@@ -2,19 +2,19 @@
 
 //error_log(print_r($this, 1));
 
-real mvc - vue et modele pas bon
-
 upload d'avatar
 
 +1 / utile
 stats page user : nb msg postes, nb thread crees, last co, status (admin, ...) - osef
-
+msg : post / edit seprares
 
 page user
 mdp oublie - page make, not completed
 
+source header (author, created, modified, ...)
 
 === DONE ===
+11/01/14 - better mvc model
 08/01/14 - update infos (pseudo, mdp, mail, avatar) -  not perfect but working
 07/01/14 - edit msg
 

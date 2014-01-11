@@ -20,4 +20,3 @@
 
 	<div class="right"></div>
 </header>
-
