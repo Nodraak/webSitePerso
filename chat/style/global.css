@@ -1,10 +1,14 @@
-/*----------------------*\
-|                        |
-|   global.css           |
-|   Jan 2014             |
-|   Adrien Chardon       |
-|                        |
-\*----------------------*/
+/******************************************************************************* 
+*
+*   File : global.css
+*
+*   Author : Adrien Chardon
+*   Date :   2014-01-11 19:10:21
+*
+*   Last Modified by :   Adrien Chardon
+*   Last Modified time : 2014-01-11 20:59:03
+*
+*******************************************************************************//* 
 
 /*=== HEADER - FOOTER ===*/
 .left, .middle, .right
@@ -22,6 +26,7 @@
 {
 	width: 50%;
 	background-color: rgb(128, 128, 255);
+	vertical-align: middle;
 }
 
 .left
@@ -50,19 +55,20 @@ body
 
 header
 {
-  border-bottom: 5px solid rgb(128, 128, 128);
+	border-bottom: 5px solid rgb(128, 128, 128);
 	height: 75px;
 }
 
 footer
 {
 	border-top: 5px solid rgb(128 ,128, 128);	
-	height: 50px;
+	height: 75px;
+	vertical-align: middle;
 }
 
 #block_page
 {
-  width: 750px;
+	width: 750px;
 	margin: auto;
 	padding: 50px;
 }
