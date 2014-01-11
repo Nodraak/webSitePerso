@@ -1,6 +1,6 @@
 
 <meta charset="utf-8" />
-<link rel="icon" type="image/png" href="../favicon.png">
+<link rel="icon" type="image/png" href="favicon.png">
 <link rel="stylesheet" type="text/css" href="style/global.css" />
 <link rel="stylesheet" type="text/css" href="style/form.css" />
 

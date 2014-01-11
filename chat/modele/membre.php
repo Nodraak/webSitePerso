@@ -10,7 +10,7 @@ class Membre
 	private $signedup;
 	private $mail;
 	private $sign;
-	private $avatar;
+	private $avatar; // gravatar url
 	public $isValid;
 
 	/* */
@@ -30,7 +30,7 @@ class Membre
 				$this->set_signedup($data['signedup']);
 				$this->set_mail($data['mail']);
 				$this->set_sign($data['sign']);
-				$this->set_avatar('http://www.gravatar.com/avatar/'.md5(strtolower(trim($this->id))).'?d=identicon&s=');
+				$this->set_avatar($id);
 				$this->isValid = 1;
 			}
 			else
@@ -71,12 +71,9 @@ class Membre
 		else
 			return '';
 	}
-
-
-
-	public function get_avatar($size)
+	public function get_avatar()
 	{
-		return $this->avatar.$size;
+		return $this->avatar;
 	}
 	public function is_valid()
 	{
@@ -127,16 +124,19 @@ class Membre
 		else
 			$this->signb = '';
 	}
-	public function set_avatar($url)
+	public function set_avatar($id)
 	{
-		if (!empty($url))
+		$localUrlClient = 'http://'.$_SERVER['SERVER_NAME'].':'.$_SERVER['SERVER_PORT'].'/webSitePerso/chat/img/'.$this->get_id().'.png';
+		$localUrlServer = 'img/'.$this->get_id().'.png';
+
+		if (is_file($localUrlServer))
 		{
-			$this->avatar = $url;
-			// bdd update
-			return 0;
+			$this->avatar = $localUrlClient;
 		}
 		else
-			return 1;
+		{
+			$this->avatar = 'http://www.gravatar.com/avatar/'.md5(strtolower(trim($id))).'?d=identicon&s=200';
+		}
 	}
 
 }

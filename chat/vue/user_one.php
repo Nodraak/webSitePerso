@@ -20,7 +20,7 @@
 						<div class="col1">
 							<table>
 								<tr>
-									<td class="avatar"><img src='.$membre->get_avatar(75).'alt=pseudo gravatar /></td>
+									<td class="avatar"><img src='.$membre->get_avatar().' alt=avatar style="max-width: 75px; max-height: 75px;" /></td>
 								</tr>
 							</table>
 						</div>

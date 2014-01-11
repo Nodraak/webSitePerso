@@ -16,7 +16,7 @@
 					.$author->get_edit($message).'</td>
 			</tr>
 			<tr class="content">
-				<td class="avatar"><img src="'.$author->get_avatar(80).'" alt="pseudo gravatar" /></td>
+				<td class="avatar"><img src="'.$author->get_avatar(80).'" alt="avatar" style="max-width: 80px; max-height: 80px;"/></td>
 				<td class="textSignBorder">
 					<div class="textSign">
 						<div class="text">'.$message->get_text_parse().'</div>
