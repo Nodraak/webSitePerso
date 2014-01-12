@@ -8,7 +8,7 @@
 *   Date :   2014-01-11 13:45:05
 *
 *   Last Modified by :   Adrien Chardon
-*   Last Modified time : 2014-01-12 12:37:34
+*   Last Modified time : 2014-01-12 12:43:11
 *
 *******************************************************************************/
 
@@ -38,13 +38,11 @@
 				$startId = ($_GET['offset']-1) * NB_MESSAGES_PER_PAGE;
 			else
 				$startId = 0;
-			$endId = $startId + NB_MESSAGES_PER_PAGE;
-
 
 			$forum = new Forum($_GET['id']);
 			
 			$bdd = ft_connect_bdd();
-			$ret = $bdd->prepare('SELECT id FROM messages WHERE thread = ? ORDER BY id ASC LIMIT '.$startId.', '.$endId);
+			$ret = $bdd->prepare('SELECT id FROM messages WHERE thread = ? ORDER BY id ASC LIMIT '.$startId.', '.NB_MESSAGES_PER_PAGE);
 			$ret->execute(array($_GET['id']));
 
 			include_once('vue/message.php');
