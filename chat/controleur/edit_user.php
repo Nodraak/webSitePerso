@@ -81,14 +81,40 @@
 		function ft_update_user_info($key, $value)
 		{
 			$bdd = ft_connect_bdd();
-			$req_pseudo = $bdd->prepare('UPDATE users SET '.$key.' = ? WHERE id = ?');
-			$req_pseudo->execute(array($value, $_SESSION['id']));
+
+			if (strcmp($key, 'pseudo') == 0)
+			{
+				$req_check_pseudo = $bdd->prepare('SELECT id FROM users WHERE pseudo = ?');
+				$req_check_pseudo->execute(array($_POST['pseudo']));
+				$data_check_pseudo = $req_check_pseudo->fetch();
+
+				if ($data_check_pseudo)
+				{
+					echo '<p>Erreur, le pseudo est déja utilisé.</p>';
+					return 1;
+				}
+				else
+				{
+					$req = $bdd->prepare('UPDATE users SET '.$key.' = ? WHERE id = ?');
+					$req->execute(array($value, $_SESSION['id']));
+					return 0;
+				}
+			}
+			else
+			{
+				$req = $bdd->prepare('UPDATE users SET '.$key.' = ? WHERE id = ?');
+				$req->execute(array($value, $_SESSION['id']));
+				return 0;
+			}
 		}
 
 		if (!empty($_POST['pseudo']))
 		{
-			ft_update_user_info('pseudo', $_POST['pseudo']);
-			echo '<p class="alert_ok">Votre pseudo a bien été mis à jour.</p>';
+			if (ft_update_user_info('pseudo', $_POST['pseudo']) == 0)
+				echo '<p class="alert_ok">Votre pseudo a bien été mis à jour.</p>';
+			else
+			echo '<p>Votre pseudo n\'a pas été modifié.</p>';
+
 		}
 		else
 			echo '<p>Votre pseudo n\'a pas été modifié.</p>';

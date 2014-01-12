@@ -1,8 +1,6 @@
 === TO DO ===
 //error_log(print_r($this, 1));
 
-edit user sign
-rm modele/login.php if useless
 stats en live : nb de co
 
 page user : need improvement
@@ -12,6 +10,7 @@ generic function to split pages and show links
 source header (author, created, modified, ...)
 
 === CHANGES ===
+12/01/14 - edit user info : sign + some bug fix
 12/01/14 - split pages : forum + message
 11/04/14 - new feature : last Connection field in user profile
 11/01/14 - new feature : nbMessage per thread - seem bug-ed
