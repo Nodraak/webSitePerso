@@ -69,7 +69,7 @@ class Membre
 	}
 	public function get_mail()
 	{
-		return substr($this->pseudo, 0, 40);
+		return $this->mail;
 	}
 	public function get_sign()
 	{
@@ -79,6 +79,11 @@ class Membre
 		else
 			return '';
 	}
+	public function get_sign_raw()
+	{
+		return $this->sign;
+	}
+
 	public function get_edit($message)
 	{
 		if ($message->get_author() == $_SESSION['id'])

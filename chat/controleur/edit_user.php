@@ -16,7 +16,7 @@
 	include_once('modele/membre.php');
 
 	// no post data
-	if (empty($_POST['pseudo']) && empty($_POST['mail']) && empty($_POST['pass']) && empty($_POST['passre']) && !isset($_FILES['avatar']))
+	if (empty($_POST['pseudo']) && empty($_POST['mail']) && empty($_POST['pass']) && empty($_POST['passre']) && !isset($_FILES['avatar']) && empty($_POST['sign']))
 	{
 		if (isset($_GET['id']))
 		{
@@ -59,18 +59,18 @@
 					</form>		
 				</p>
 				<p>
+					<form method="post" action="index.php?page=edit_user&id='.$membre->get_id().'">
+						<label for="sign"><span class="title">Signature :</span></label><br />
+						<input type="text" name="sign" id="sign" size="40" value="'.$membre->get_sign_raw().'" required /><br />
+						<input type="submit" value="Mettre à jour la signature" />
+					</form>
+				</p>
+				<p>
 					<form method="post" action="index.php?page=edit_user&id='.$membre->get_id().'" enctype="multipart/form-data">
 						<label for="avatar"><span class="title">Avatar :</span>	</label><br />
 						Image png, jpg ou gif, de 50 ko maximum, de 200*200 px maximum.<br />
 						<input type="file" name="avatar" id="avatar" required /><br />
 						<input type="submit" value="Mettre à jour l\'avatar" />
-					</form>
-				</p>
-				<p>
-					<form method="post" action="index.php?page=edit_user&id='.$membre->get_id().'">
-						<label for="sign"><span class="title">Signature :</span>	</label><br />
-						<input type="text" name="sign" id="sign" value="'.$membre->get_sign().'" required /><br />
-						<input type="submit" value="Mettre à jour la signature" />
 					</form>
 				</p>';
 		}
@@ -144,7 +144,7 @@
 
 		if (!empty($_POST['sign']))
 		{
-			ft_update_user_info('sign', $$_POST['sign']);
+			ft_update_user_info('sign', $_POST['sign']);
 			echo '<p class="alert_ok">Votre signature a bien été mise à jour.</p>';
 		}
 		else
