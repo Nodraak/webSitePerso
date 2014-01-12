@@ -1,11 +1,35 @@
-/*----------------------*\
-|                        |
-|   message.css          |
-|   Jan 2014             |
-|   Adrien Chardon       |
-|                        |
-\*----------------------*/
+/******************************************************************************* 
+*
+*   File : message.css
+*   Author : Adrien Chardon
+*   Date :   2014-01-11 19:05:10
+*
+*   Last Modified by :   Adrien Chardon
+*   Last Modified time : 2014-01-12 12:31:21
+*
+*******************************************************************************/
 
+/*=== page (offset) links ===*/
+.pagesBar
+{
+	text-align: center;
+}
+
+.pagesBar a, .pagesBar span
+{
+	margin: 5px;
+	padding: 5px;
+}
+
+.pagesBar span
+{
+	font-size: small;
+}
+
+.actual
+{
+	background-color: rgb(150, 150, 255);
+}
 
 /*=== style ===*/
 .italic
@@ -59,14 +83,14 @@
 }
 
 
-
 /*=== general ===*/
 
 table
 {
 	width: 100%;
 	border-collapse: collapse;
-	margin: 15px;
+	margin-top: 20px;
+	margin-bottom: 20px;
 }
 
 .author

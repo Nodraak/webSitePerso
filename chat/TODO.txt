@@ -5,20 +5,15 @@ cut pages : forum + message (15 elem max)
 
 stats en live : nb de co
 
-stats page user : 	nb msg postes	- osef
-					nb thread crees	- osef
-					last co			- usefull
-					nb de co		- for admin
-					status (admin, ...)	- not usefull yet
-
 page user : need improvement
 mdp oublie - page make, not completed
 
 source header (author, created, modified, ...)
 
 
-=== HISTORY ===
-11/01/14 - new feature : nbMessage per thread
+=== CHANGES ===
+11/04/14 - new feature : last Connection field in user profile
+11/01/14 - new feature : nbMessage per thread - seem bug-ed
 11/01/14 - upload d'avatar
 11/01/14 - better mvc model
 08/01/14 - update infos (pseudo, mdp, mail, avatar) -  not perfect but working
@@ -29,7 +24,9 @@ source header (author, created, modified, ...)
 rm -rf webSiteFiles
 git clone https://github.com/Nodraak/webSitePerso.git
 mv webSitePerso webSiteFiles
+
 change login, pass and database name in chat/modele/init.php
-modele/membre.php avatar url del webSiteFiles
-export / import database
+modele/membre.php : avatar url del webSiteFiles 
+
+nope <export / import database>
 cp img directory (or maybe git push / clone it)

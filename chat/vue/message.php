@@ -1,7 +1,55 @@
 <?php
 
-	echo '<h2>'.$forum->get_title().'</h2>';
+/******************************************************************************* 
+*
+*   File : 
+*
+*   Author : Adrien Chardon
+*   Date :   2014-01-11 19:09:34
+*
+*   Last Modified by :   Adrien Chardon
+*   Last Modified time : 2014-01-12 12:30:44
+*
+*******************************************************************************/
 
+	function removeqsvar($url, $varname)
+	{
+		list($urlpart, $qspart) = array_pad(explode('?', $url), 2, '');
+		parse_str($qspart, $qsvars);
+		unset($qsvars[$varname]);
+		$newqs = http_build_query($qsvars);
+		return $urlpart . '?' . $newqs;
+	}
+
+	function ft_print_offset_links()
+	{
+		$forum = new Forum($_GET['id']);
+
+		$nbPages = (int)($forum->get_nbMessage() / 15) + 1;
+		$baseUrl = 'http://'.$_SERVER['SERVER_NAME'].':'.$_SERVER['SERVER_PORT'].$_SERVER['PHP_SELF'].'?'.$_SERVER['QUERY_STRING'];
+		$baseUrl = removeqsvar($baseUrl, 'offset');
+
+		echo '<div class="pagesBar">';
+			echo '<span><<</span>';
+		for ($i = 1; $i <= $nbPages; $i++)
+		{
+			if (isset($_GET['offset']) && $i == $_GET['offset'])
+				$actual = 'class="actual"';
+			else
+				$actual = '';
+
+			echo '<a href="'.$baseUrl.'&offset='.$i.'" '.$actual.'>'.$i.'</a>';
+		}
+		echo '<span>>></span>';
+		echo '</div>';
+	}
+
+	echo '<h2>'.$forum->get_title().'</h2>';
+	
+	/*=== page (offset links) ===*/
+	ft_print_offset_links();
+
+	/*=== mesages ===*/
 	while ($data = $ret->fetch())
 	{
 		$message = new Message($data['id']);
@@ -27,15 +75,22 @@
 		</table>';
 	}
 
-	echo '<div class="post_message"><p>
-			<form method=post action=index.php?page=post>
-				<label for=message>Votre mesage :</label>
-			<br />
-				<textarea name=message id=message rows=10 cols=75 required></textarea>
-				<input type=hidden name=thread_id value='.$_GET['id'].' />
-			<br />
-				<input type=submit value=Poster />
-			</form>
-		</div></p>';
+	ft_print_offset_links();
 
+	/*=== form post : new message ===*/
+	$nbPages = (int)($forum->get_nbMessage() / 15) + 1;
+	
+	if (isset($_GET['offset']) && $_GET['offset'] == $nbPages)
+	{
+		echo '<div class="post_message"><p>
+				<form method=post action=index.php?page=post>
+					<label for=message>Votre mesage :</label>
+				<br />
+					<textarea name=message id=message rows=10 cols=75 required></textarea>
+					<input type=hidden name=thread_id value='.$_GET['id'].' />
+				<br />
+					<input type=submit value=Poster />
+				</form>
+			</div></p>';
+	}
 ?>
