@@ -8,24 +8,16 @@
 *   Date :   2014-01-11 19:09:34
 *
 *   Last Modified by :   Adrien Chardon
-*   Last Modified time : 2014-01-12 12:37:37
+*   Last Modified time : 2014-01-12 14:21:55
 *
 *******************************************************************************/
-
-	function removeqsvar($url, $varname)
-	{
-		list($urlpart, $qspart) = array_pad(explode('?', $url), 2, '');
-		parse_str($qspart, $qsvars);
-		unset($qsvars[$varname]);
-		$newqs = http_build_query($qsvars);
-		return $urlpart . '?' . $newqs;
-	}
 
 	function ft_print_offset_links()
 	{
 		$forum = new Forum($_GET['id']);
 
-		$nbPages = (int)($forum->get_nbMessage() / NB_MESSAGES_PER_PAGE) + 1;
+		$nbPages = (int)(($forum->get_nbMessage()-1) / NB_MESSAGES_PER_PAGE) + 1;
+		
 		$baseUrl = 'http://'.$_SERVER['SERVER_NAME'].':'.$_SERVER['SERVER_PORT'].$_SERVER['PHP_SELF'].'?'.$_SERVER['QUERY_STRING'];
 		$baseUrl = removeqsvar($baseUrl, 'offset');
 
@@ -78,7 +70,7 @@
 	ft_print_offset_links();
 
 	/*=== form post : new message ===*/
-	$nbPages = (int)($forum->get_nbMessage() / NB_MESSAGES_PER_PAGE) + 1;
+	$nbPages = (int)(($forum->get_nbMessage()-1) / NB_MESSAGES_PER_PAGE) + 1;
 
 	if (isset($_GET['offset']) && $_GET['offset'] == $nbPages)
 	{

@@ -27,16 +27,16 @@
 			}
 		}
 
-		header('Location: index.php?page=message&id='.$_POST['thread_id'].'&error=0');
+		header('Location: index.php?page=message&id='.$_POST['thread_id'].'&error=0&offset=last');
 	}
 	else
 	{
 		if (!isset($_SESSION['pseudo']))
-			header('Location: index.php?page=message&id='.$_POST['thread_id'].'&error=pseudo');
+			header('Location: index.php?page=message&id='.$_POST['thread_id'].'&error=pseudo&offset=last');
 		if (!isset($_SESSION['message']))
-			header('Location: index.php?page=message&id='.$_POST['thread_id'].'&error=message');
+			header('Location: index.php?page=message&id='.$_POST['thread_id'].'&error=message&offset=last');
 		if (!isset($_SESSION['thread']))
-			header('Location: index.php?page=message&id='.$_POST['thread_id'].'&error=thread_id');
+			header('Location: index.php?page=message&id='.$_POST['thread_id'].'&error=thread_id&offset=last');
 	}
 
 ?>

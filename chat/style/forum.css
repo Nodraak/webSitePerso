@@ -1,21 +1,59 @@
-/*----------------------*\
-|                        |
-|   forum.css            |
-|   Jan 2014             |
-|   Adrien Chardon       |
-|                        |
-\*----------------------*/
+/******************************************************************************* 
+*
+*   File : forum.css
+*
+*   Author : Adrien Chardon
+*   Date :   2014-01-10 17:23:33
+*
+*   Last Modified by :   Adrien Chardon
+*   Last Modified time : 2014-01-12 13:58:02
+*
+*******************************************************************************/
 
-.thread table {border-collapse: collapse;}
+/*=== page (offset) links ===*/
+.pagesBar
+{
+	text-align: center;
+	padding: 10px;
+}
 
-.thread td {padding: 15px;}
+.pagesBar a, .pagesBar span
+{
+	margin: 5px;
+	padding: 5px;
+}
+
+.pagesBar span
+{
+	font-size: small;
+}
+
+.actual
+{
+	background-color: rgb(150, 150, 255);
+}
+
+/*=== ===*/
+.thread table
+{
+	border-collapse: collapse;
+}
+
+.thread td
+{
+	padding: 10px;
+}
 
 .thread
 {
-	margin-top: 15px;
+	margin-top: 10px;
+	margin-bottom: 10px;
 }
 
-.time {font-size: small;}
+.time
+{
+	font-size: small;
+}
 
 .thread .time_activity, .thread .time_created
 {

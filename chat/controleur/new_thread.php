@@ -8,7 +8,7 @@
 *   Date :   2014-01-11 19:34:21
 *
 *   Last Modified by :   Adrien Chardon
-*   Last Modified time : 2014-01-11 19:36:47
+*   Last Modified time : 2014-01-12 14:01:08
 *
 *******************************************************************************/
 
@@ -34,7 +34,7 @@
 		$message = new Message();
 		$message->post_message($thread_id, $_POST['text']);
 
-		header('Location: index.php?page=message&id='.$thread_id.'&error=0');
+		header('Location: index.php?page=message&id='.$thread_id.'&error=0&offset=1');
 	}
 
 ?>

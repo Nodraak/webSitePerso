@@ -8,7 +8,7 @@
 *   Date :   2014-01-11 13:45:05
 *
 *   Last Modified by :   Adrien Chardon
-*   Last Modified time : 2014-01-12 12:43:11
+*   Last Modified time : 2014-01-12 14:22:23
 *
 *******************************************************************************/
 
@@ -34,12 +34,16 @@
 		}
 		else
 		{
+			$forum = new Forum($_GET['id']);
+
+			$nbPages = (int)(($forum->get_nbMessage()-1) / NB_MESSAGES_PER_PAGE) + 1;
+			if (strcmp($_GET['offset'], 'last') == 0)
+				$_GET['offset'] = $nbPages;
+
 			if (isset($_GET['offset']))
 				$startId = ($_GET['offset']-1) * NB_MESSAGES_PER_PAGE;
 			else
 				$startId = 0;
-
-			$forum = new Forum($_GET['id']);
 			
 			$bdd = ft_connect_bdd();
 			$ret = $bdd->prepare('SELECT id FROM messages WHERE thread = ? ORDER BY id ASC LIMIT '.$startId.', '.NB_MESSAGES_PER_PAGE);
