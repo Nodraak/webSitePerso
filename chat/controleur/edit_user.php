@@ -69,7 +69,7 @@
 				<p>
 					<form method="post" action="index.php?page=edit_user&id='.$membre->get_id().'">
 						<label for="sign"><span class="title">Signature :</span>	</label><br />
-						<input type="text" name="sign" id="sign" required /><br />
+						<input type="text" name="sign" id="sign" value="'.$membre->get_sign().'" required /><br />
 						<input type="submit" value="Mettre à jour la signature" />
 					</form>
 				</p>';
