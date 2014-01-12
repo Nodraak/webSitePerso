@@ -73,6 +73,7 @@ class Membre
 	}
 	public function get_sign()
 	{
+		// empty or isset or isnull
 		if (!empty($this->sign))
 			return '<div class="paddingTextSign"></div><div class="sign">'.ft_parse_text($this->sign).'</div>';
 		else

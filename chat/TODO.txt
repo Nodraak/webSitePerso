@@ -2,6 +2,7 @@
 //error_log(print_r($this, 1));
 
 edit user sign
+rm modele/login.php if useless
 stats en live : nb de co
 
 page user : need improvement

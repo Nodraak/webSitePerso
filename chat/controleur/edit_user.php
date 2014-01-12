@@ -38,14 +38,14 @@
 			echo '<p>
 					<form method="post" action="index.php?page=edit_user&id='.$membre->get_id().'">
 						<label for="pseudo"><span class="title">Pseudo :</span></label><br />
-						<input type="text" name="pseudo" id="pseudo" value="'.$membre->get_pseudo().'"><br />
+						<input type="text" name="pseudo" id="pseudo" value="'.$membre->get_pseudo().'" required /><br />
 						<input type="submit" value="Mettre à jour le pseudo" />
 					</form>
 				</p>
 				<p>
 					<form method="post" action="index.php?page=edit_user&id='.$membre->get_id().'">
 						<label for="mail"><span class="title">Adresse email :</span></label><br />
-						<input type="email" name="mail" id="mail" size="40" value="'.$membre->get_mail().'"/><br />
+						<input type="email" name="mail" id="mail" size="40" value="'.$membre->get_mail().'" required /><br />
 						<input type="submit" value="Mettre à jour l\'adresse email" />
 					</form>
 				</p>
@@ -54,16 +54,23 @@
 						<label for="pass"><span class="title">Mot de passe :</span></label><br />
 						<input type="password" name="pass" id="pass" /><br />
 						<label for="passre">Vérification :</label><br />
-						<input type="password" name="passre" id="passre" /><br />
+						<input type="password" name="passre" id="passre" required /><br />
 						<input type="submit" value="Mettre à jour le mot de passe" />
 					</form>		
 				</p>
 				<p>
 					<form method="post" action="index.php?page=edit_user&id='.$membre->get_id().'" enctype="multipart/form-data">
-                		<label for="avatar"><span class="title">Avatar :</span>	</label><br />
-                		Image png, jpg ou gif, de 50 ko maximum, de 200*200 px maximum.<br />
-                		<input type="file" name="avatar" id="avatar" required /><br />
-                		<input type="submit" value="Mettre à jour l\'avatar" />
+						<label for="avatar"><span class="title">Avatar :</span>	</label><br />
+						Image png, jpg ou gif, de 50 ko maximum, de 200*200 px maximum.<br />
+						<input type="file" name="avatar" id="avatar" required /><br />
+						<input type="submit" value="Mettre à jour l\'avatar" />
+					</form>
+				</p>
+				<p>
+					<form method="post" action="index.php?page=edit_user&id='.$membre->get_id().'">
+						<label for="sign"><span class="title">Signature :</span>	</label><br />
+						<input type="text" name="sign" id="sign" required /><br />
+						<input type="submit" value="Mettre à jour la signature" />
 					</form>
 				</p>';
 		}
@@ -134,6 +141,15 @@
 				}
 			}
 		}
+
+		if (!empty($_POST['sign']))
+		{
+			ft_update_user_info('sign', $$_POST['sign']);
+			echo '<p class="alert_ok">Votre signature a bien été mise à jour.</p>';
+		}
+		else
+			echo '<p>Votre signature n\'a pas été modifiée.</p>';
+
 	}
 
 ?>
