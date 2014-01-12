@@ -8,7 +8,7 @@
 *   Date :   2014-01-11 19:09:34
 *
 *   Last Modified by :   Adrien Chardon
-*   Last Modified time : 2014-01-12 14:21:55
+*   Last Modified time : 2014-01-12 18:49:56
 *
 *******************************************************************************/
 
@@ -20,6 +20,7 @@
 		
 		$baseUrl = 'http://'.$_SERVER['SERVER_NAME'].':'.$_SERVER['SERVER_PORT'].$_SERVER['PHP_SELF'].'?'.$_SERVER['QUERY_STRING'];
 		$baseUrl = removeqsvar($baseUrl, 'offset');
+		$baseUrl = removeqsvar($baseUrl, 'error');
 
 		echo '<div class="pagesBar">';
 			echo '<span><<</span>';
