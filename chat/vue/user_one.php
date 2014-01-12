@@ -21,21 +21,27 @@
 			{
 				return '0 minute(s) (à l\'instant quoi)';
 			}
-			if ($timestamp < 60*60) // < 1 hour
+			else if ($timestamp < 60*60) // < 1 hour
 			{
 				$ret = (int)($timestamp/60);
 				return $ret.' minute(s)';
 			}
-			if ($timestamp < 60*60*24) // < 1 day
+			else if ($timestamp < 60*60*24) // < 1 day
 			{
 				$ret = (int)($timestamp/(60*60));
 				return $ret.' heure(s)';
 			}
-			if ($timestamp < 60*60*24) // < 1 month
+			else if ($timestamp < 60*60*24*31) // < 1 month
 			{
 				$ret = (int)($timestamp/(60*60*24));
+				return $ret.' jours';
+			}
+			else
+			{
+				$ret = (int)($timestamp/(60*60*24*31));
 				return $ret.' mois';
 			}
+
 		}
 
 		$membre = new Membre($_GET['id']);
