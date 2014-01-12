@@ -22,4 +22,6 @@
 	// array of pages authorized for acces without loging
 	$page_acces_not_logged = array('login', 'signup', 'lost_pass');
 
+	const NB_MESSAGES_PER_PAGE = 15;
+
 ?>

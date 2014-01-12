@@ -8,7 +8,7 @@
 *   Date :   2014-01-11 13:45:05
 *
 *   Last Modified by :   Adrien Chardon
-*   Last Modified time : 2014-01-12 12:19:11
+*   Last Modified time : 2014-01-12 12:37:34
 *
 *******************************************************************************/
 
@@ -35,10 +35,10 @@
 		else
 		{
 			if (isset($_GET['offset']))
-				$startId = ($_GET['offset']-1)*15;
+				$startId = ($_GET['offset']-1) * NB_MESSAGES_PER_PAGE;
 			else
 				$startId = 0;
-			$endId = $startId + 15;
+			$endId = $startId + NB_MESSAGES_PER_PAGE;
 
 
 			$forum = new Forum($_GET['id']);

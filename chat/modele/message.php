@@ -8,7 +8,7 @@
 *   Date :   2014-01-11 19:35:28
 *
 *   Last Modified by :   Adrien Chardon
-*   Last Modified time : 2014-01-11 19:36:29
+*   Last Modified time : 2014-01-12 12:35:52
 *
 *******************************************************************************/
 
@@ -17,11 +17,11 @@
 	class Message
 	{
 		private $id;
-		private $posted;
-		//private $edited;
+		private $posted; // posted or edited
 		private $thread;
 		private $author;
 		private $text;
+		
 		public $isValid;
 
 		/*===*/
