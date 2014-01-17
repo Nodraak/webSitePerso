@@ -8,7 +8,7 @@
 *   Date :   2014-01-11 19:09:34
 *
 *   Last Modified by :   Adrien Chardon
-*   Last Modified time : 2014-01-12 18:49:56
+*   Last Modified time : 2014-01-17 22:57:56
 *
 *******************************************************************************/
 
@@ -84,6 +84,17 @@
 				<br />
 					<input type=submit value=Poster />
 				</form>
+			</div></p>';
+	}
+	else
+	{
+		$baseUrl = 'http://'.$_SERVER['SERVER_NAME'].':'.$_SERVER['SERVER_PORT'].$_SERVER['PHP_SELF'].'?'.$_SERVER['QUERY_STRING'];
+		$baseUrl = removeqsvar($baseUrl, 'offset');
+		$baseUrl = removeqsvar($baseUrl, 'error');
+
+		echo '<div class="post_message center"><p>
+				Pour poster un message, lisez d\'abord ceux qui ont<br/>
+				déja été postés, le formulaire est à la <a href="'.$baseUrl.'&offset=last">dernière page</a>.
 			</div></p>';
 	}
 ?>

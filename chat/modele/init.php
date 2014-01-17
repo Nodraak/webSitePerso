@@ -8,7 +8,7 @@
 *   Date :   2014-01-12 12:49:42
 *
 *   Last Modified by :   Adrien Chardon
-*   Last Modified time : 2014-01-12 13:59:20
+*   Last Modified time : 2014-01-17 22:24:54
 *
 *******************************************************************************/
 
@@ -22,7 +22,7 @@
 	{
 		try
 		{
-			$bdd = new PDO('mysql:host=localhost;dbname=test;charset=utf8', 'adur', 'mdpms');
+			$bdd = new PDO('mysql:host=localhost;dbname=chat;charset=utf8', 'root', 'root');
 		}
 		catch (Exception $e)
 		{

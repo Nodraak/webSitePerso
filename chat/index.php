@@ -1,4 +1,7 @@
-<?php include_once('modele/init.php'); ?>
+<?php
+	include_once('modele/init.php');
+	include_once('modele/stat.php');
+?>
 
 <!DOCTYPE html>
 <html>
@@ -11,7 +14,7 @@
 		<?php include_once('vue/header.php'); ?>
 
 		<div id=block_page>
-			<?php
+<?php
 				if (!empty($_GET['page']) && is_file('controleur/'.$_GET['page'].'.php'))
 				{
 					if (!isset($_SESSION['pseudo']) && !in_array($_GET['page'], $page_acces_not_logged))
@@ -23,7 +26,8 @@
 				{
 					include_once('controleur/home.php');
 				}
-			?>
+echo '<span style="float: right;">'.$nbCo.' visiteur(s) actuellement sur le site.</span>';
+?>
 		</div>
 
 		<?php include_once('vue/footer.php'); ?>
