@@ -8,12 +8,11 @@
 *   Date :   2014-01-11 12:01:59
 *
 *   Last Modified by :   Adrien Chardon
-*   Last Modified time : 2014-01-11 19:50:17
+*   Last Modified time : 2014-01-13 16:48:01
 *
 *******************************************************************************/
 
 	include_once('modele/init.php');
-	include_once('modele/login.php');
 
 	echo '<h2>Connexion</h2>';
 
