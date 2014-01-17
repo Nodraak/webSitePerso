@@ -1,6 +1,8 @@
-=== TO DO ===
-//error_log(print_r($this, 1));
+=============
+    TO DO
+=============
 
+//error_log(print_r($this, 1));
 
 stats en live : nb de co
 
@@ -8,9 +10,13 @@ page user : need improvement
 mdp oublie - page make, not completed
 generic function to split pages and show links
 
-source header (author, created, modified, ...)
+source header for every files (author, created, modified, ...)
 
-=== CHANGES ===
+===============
+    CHANGES
+===============
+
+17/01/14 - added git commit hash in footer
 12/01/14 - edit user info : sign + some bug fix
 12/01/14 - split pages : forum + message
 11/04/14 - new feature : last Connection field in user profile
@@ -20,14 +26,16 @@ source header (author, created, modified, ...)
 08/01/14 - update infos (pseudo, mdp, mail, avatar) -  not perfect but working
 07/01/14 - edit msg
 
+===============================
+   WHEN PUSH TO PROD SERVER
+===============================
 
-=== ON PUSH TO PROD SERVER ===
 rm -rf webSiteFiles
 git clone https://github.com/Nodraak/webSitePerso.git
 mv webSitePerso webSiteFiles
 
 change login, pass and database name in chat/modele/init.php
-modele/membre.php : avatar url del webSiteFiles 
+in file modele/membre.php : avatar url -> delete "webSiteFiles "
 
-nope <export / import database>
 cp img directory (or maybe git push / clone it)
+

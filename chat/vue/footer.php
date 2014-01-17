@@ -9,8 +9,8 @@ echo '
 	<div class="middle center">
 		<p>
 			Conception et réalisation Adrien Chardon.<br />
-			Page perso, mais code public, dispo sur mon <a href="https://github.com/Nodraak/webSitePerso/tree/master/chat">github</a>.
-			<span style="font-size: x-small;">commit git : '.$version.'</span>
+			Page perso, mais code public, dispo sur mon <a href="https://github.com/Nodraak/webSitePerso/tree/master/chat">github</a>.<br />
+			<span style="font-size: x-small;">(git commit hash : '.$version.')</span>
 		</p>
 	</div>
 	<div class="right"></div>
