@@ -1,6 +1,7 @@
 <?php
 
-$version = exec("git log --pretty=format:'%h' -n 1");
+exec('git rev-parse --verify HEAD 2> /dev/null', $output);
+$version = $output[0];
 
 echo '
 <footer>
