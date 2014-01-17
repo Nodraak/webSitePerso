@@ -1,41 +1,45 @@
-=============
-    TO DO
-=============
-
-//error_log(print_r($this, 1));
-
-stats en live : nb de co
-
-page user : need improvement
-mdp oublie - page make, not completed
-generic function to split pages and show links
-
-source header for every files (author, created, modified, ...)
-
-===============
-    CHANGES
-===============
-
-17/01/14 - added git commit hash in footer
-12/01/14 - edit user info : sign + some bug fix
-12/01/14 - split pages : forum + message
-11/04/14 - new feature : last Connection field in user profile
-11/01/14 - new feature : nbMessage per thread - seem bug-ed
-11/01/14 - upload d'avatar
-11/01/14 - better mvc model
-08/01/14 - update infos (pseudo, mdp, mail, avatar) -  not perfect but working
-07/01/14 - edit msg
-
-===============================
-   WHEN PUSH TO PROD SERVER
-===============================
-
-rm -rf webSiteFiles
-git clone https://github.com/Nodraak/webSitePerso.git
-mv webSitePerso webSiteFiles
-
-change login, pass and database name in chat/modele/init.php
-in file modele/membre.php : avatar url -> delete "webSiteFiles "
-
-cp img directory (or maybe git push / clone it)
-
++
+| =============
+|     TO DO
+| =============
+|
+| //error_log(print_r($this, 1)); -> log something to log file of php, dont display it to user
+|
+| stats en live : nb de co
+|
+| page user : need improvement
+| mdp oublie - page make, not completed
+| generic function to split pages and show links
+|
+| source header for every files (author, created, modified, ...)
+|
+|
+| ===============================
+|    WHEN PUSH TO PROD SERVER
+| ===============================
+|
+| rm -rf webSiteFiles
+| git clone https://github.com/Nodraak/webSitePerso.git
+| mv webSitePerso webSiteFiles
+|
+| change login, pass and database name in chat/modele/init.php
+| in file modele/membre.php : avatar url -> delete "webSiteFiles "
+|
+| cp img directory (or maybe git push / clone it)
+|
+|
+| ===============
+|     CHANGES
+| ===============
+|
+| 17/01/14 - added git commit hash in footer
+| 12/01/14 - edit user info : sign + some bug fix
+| 12/01/14 - split pages : forum + message
+| 11/04/14 - new feature : last Connection field in user profile
+| 11/01/14 - new feature : nbMessage per thread - seem bug-ed
+| 11/01/14 - upload d'avatar
+| 11/01/14 - better mvc model
+| 08/01/14 - update infos (pseudo, mdp, mail, avatar) -  not perfect but working
+| 07/01/14 - edit msg
+|
++
