@@ -13,7 +13,6 @@
 *******************************************************************************/
 
 	include_once('modele/init.php');
-	include_once('modele/login.php');
 
 	echo '<h2>Connexion</h2>';
 

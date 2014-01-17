@@ -22,7 +22,7 @@
 	{
 		try
 		{
-			$bdd = new PDO('mysql:host=localhost;dbname=chat;charset=utf8', 'root', 'root');
+			$bdd = new PDO('mysql:host=localhost;dbname=test;charset=utf8', 'adur', 'mdpms');
 		}
 		catch (Exception $e)
 		{
