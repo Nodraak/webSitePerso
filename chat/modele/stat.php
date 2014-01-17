@@ -38,7 +38,7 @@
 
 	// get nb active
 	$req = $bdd->query('SELECT COUNT(*) FROM stats WHERE timestamp > NOW() - 300');
-	$ret = $req->fetch();
+	//$ret = $req->fetch();
 
 	$nbCo = $ret[0];
 ?>

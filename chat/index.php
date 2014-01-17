@@ -26,7 +26,7 @@
 				{
 					include_once('controleur/home.php');
 				}
-echo '<span style="float: right;">'.$nbCo.' visiteur(s) actuellement sur le site.</span>';
+//echo '<span style="float: right;">'.$nbCo.' visiteur(s) actuellement sur le site.</span>';
 ?>
 		</div>
 
