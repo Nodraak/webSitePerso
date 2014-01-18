@@ -1,6 +1,5 @@
 <?php
 	include_once('modele/init.php');
-	include_once('modele/stat.php');
 ?>
 
 <!DOCTYPE html>
@@ -26,8 +25,6 @@
 				{
 					include_once('controleur/home.php');
 				}
-echo '<span style="float: right;">'.$nbCo.' visiteur(s) actuellement sur le site.</span>';
-?>
 		</div>
 
 		<?php include_once('vue/footer.php'); ?>
