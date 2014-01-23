@@ -1,3 +1,17 @@
+<!--
+/******************************************************************************* 
+*
+*   File : 
+*
+*   Author : Adrien Chardon
+*   Date :   2014-01-12 20:12:00
+*
+*   Last Modified by :   Adrien Chardon
+*   Last Modified time : 2014-01-23 16:49:05
+*
+*******************************************************************************/
+-->
+
 <?php include('options.php'); ?>
 
 <!DOCTYPE html>
@@ -10,7 +24,14 @@
 	<body>
 		<?php include("header.php"); ?>
 
-		<div id=block_page>
+		<div id="block_page">
+
+			<span class="fontSize">
+				<button type="button" id="fontM">-</button>
+				<span id="fontSize">undef</span>
+				<button type="button" id="fontP">+</button>
+			</span>
+
 			<h1>Home</h1>
 
 			<h2><?php
@@ -54,5 +75,6 @@
 		</div>
 
 		<?php include("footer.php"); ?>
+		<script src="script.js"></script>
 	</body>
 </html>
