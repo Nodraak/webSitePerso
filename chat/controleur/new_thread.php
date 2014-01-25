@@ -26,7 +26,7 @@
 		$bdd = ft_connect_bdd();
 
 		// create thread
-		$req = $bdd->prepare('INSERT INTO threads (created, owner, title, nbMessage) VALUES(NOW(), ?, ?, 1)');
+		$req = $bdd->prepare('INSERT INTO threads (created, owner, title, nbMessage) VALUES(NOW(), ?, ?, 0)');
 		$req->execute(array($_SESSION['id'], $_POST['title']));
 		$thread_id = $bdd->lastInsertId();
 
