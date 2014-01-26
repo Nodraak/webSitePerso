@@ -109,16 +109,36 @@
 		{
 			$bdd = ft_connect_bdd();
 			
-			// post msg in bdd
-			$req = $bdd->prepare('INSERT INTO messages (posted, thread, author, text) VALUES(NOW(), ?, ?, ?)');
-			$req->execute(array($thread_id, $_SESSION['id'], $text));
-			
-			// get msg data and build object
-			$id = $bdd->lastInsertId();
-			$this->__construct($id);
+			$req = $bdd->prepare('SELECT posted FROM messages WHERE author = ? AND thread = ? ORDER BY posted DESC LIMIT 0,1');
+			$req->execute(array($_SESSION['id'], $thread_id));
+			$ret = $req->fetch();
 
-			$this->update_thread_activity();
-			$this->update_thread_nbMessage();
+			$req_now = $bdd->query('SELECT NOW()');
+			$ret_now = $req_now->fetch();
+	
+			// check anti flood
+			if (strtotime($ret['posted']) + 60*5 < strtotime($ret_now[0]))
+			{
+				// post msg in bdd
+				$req = $bdd->prepare('INSERT INTO messages (posted, thread, author, text) VALUES(NOW(), ?, ?, ?)');
+				$req->execute(array($thread_id, $_SESSION['id'], $text));
+			
+				// get msg data and build object
+				$id = $bdd->lastInsertId();
+				$this->__construct($id);
+		
+				// update stats
+				$this->update_thread_activity();
+				$this->update_thread_nbMessage();
+
+				// update last activity
+				$req = $bdd->prepare('UPDATE users SET lastCo = NOW() WHERE id = ?');
+				$req->execute(array($_SESSION['id']));
+
+				return '0';
+			}
+			else
+				return 'anti_flood';
 		}
 		public function edit_message($text)
 		{

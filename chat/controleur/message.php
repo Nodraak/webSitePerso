@@ -17,9 +17,9 @@
 	include_once('modele/message.php');
 	include_once('modele/membre.php');
 
-	if (isset($_GET['error']) && $_GET['error'] != 0)
+	if (isset($_GET['error']) && strcmp($_GET['error'], '0') != 0)
 	{
-		echo '<p class="alert_ko">Erreur, le message n\'a pas été posté, le formulaire était incomplet. (Code d\'erreur : '.$_GET['error'].')</p>';
+		echo '<p class="alert_ko">Erreur, le message n\'a pas été posté, le formulaire comportait une erreur. (Erreur : '.$_GET['error'].')</p>';
 	}
 	else
 	{

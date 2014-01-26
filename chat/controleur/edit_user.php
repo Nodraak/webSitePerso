@@ -141,21 +141,21 @@
 			$nbError = 0;
 
 			if ($_FILES['avatar']['error'] != 0)
-				echo '<p>Erreur (code = server : '.$_FILES['avatar']['error'].')</p>', $nbError++;
+				echo '<p class="alert_ko">Erreur (code = erreur server : '.$_FILES['avatar']['error'].' - contactez l\'administrateur)</p>', $nbError++;
 
 			if ($_FILES['avatar']['size'] > 100000)
-				echo '<p>Erreur (code = size_bytes)</p>', $nbError++;
+				echo '<p class="alert_ko">Erreur (code = taille en octets)</p>', $nbError++;
 
 			$extensions_valides = array('jpg', 'jpeg', 'gif', 'png');
 			$extension_upload = strtolower(substr(strrchr($_FILES['avatar']['name'], '.'), 1));
 			if (!in_array($extension_upload,$extensions_valides))
-				echo '<p>Erreur (code = extension)</p>', $nbError++;
+				echo '<p class="alert_ko">Erreur (code = extension non autorisée)</p>', $nbError++;
 
 			if ($nbError == 0)
 			{
 				$image_sizes = getimagesize($_FILES['avatar']['tmp_name']);
 				if ($image_sizes[0] > 200 || $image_sizes[1] > 200)
-					echo '<p>Erreur (code = size_px)</p>', $nbError++;
+					echo '<p class="alert_ko">Erreur (code = taille en pixels)</p>', $nbError++;
 
 				if ($nbError == 0)
 				{

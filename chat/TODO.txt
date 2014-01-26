@@ -5,7 +5,9 @@
 |
 | //error_log(print_r($this, 1)); -> log something to log file of php, dont display it to user
 |
-| mp + notifications
+| mp
+| notifications
+| thread en post it
 |
 | mdp oublie - need improvement -> need mail set up
 |
@@ -25,20 +27,22 @@
 |
 | cp img directory (or maybe git push / clone it)
 |
-| !! WARNING !! be carrefull to img/ dir write rights  (chmod 775 doesnt work, use 777 or better)
+| !! WARNING !! be carrefull with img/ directory's write rights (chmod 775 doesnt work, use 777 or better)
 |
 |
 | ===============
 |     CHANGES
 | ===============
 |
+| 26/01/14 - anti flood
+|          - change lastCo to lastActivity - done 26 jan
 | 17/01/14 - added git commit hash in footer
 | 12/01/14 - edit user info : sign + some bug fix
-| 12/01/14 - split pages : forum + message
+|          - split pages : forum + message
 | 11/04/14 - new feature : last Connection field in user profile
-| 11/01/14 - new feature : nbMessage per thread - seem bug-ed
-| 11/01/14 - upload d'avatar
-| 11/01/14 - better mvc model
+|          - new feature : nbMessage per thread - seem bug-ed
+|          - upload d'avatar
+|          - better mvc model
 | 08/01/14 - update infos (pseudo, mdp, mail, avatar) -  not perfect but working
 | 07/01/14 - edit msg
 |

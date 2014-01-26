@@ -150,7 +150,7 @@ class Membre
 	}
 	public function set_avatar($id)
 	{
-		$localUrlClient = 'http://'.$_SERVER['SERVER_NAME'].':'.$_SERVER['SERVER_PORT'].'/websitePerso/chat/img/'.$this->get_id().'.png';
+		$localUrlClient = 'http://'.$_SERVER['SERVER_NAME'].':'.$_SERVER['SERVER_PORT'].'/chat/img/'.$this->get_id().'.png';
 		$localUrlServer = 'img/'.$this->get_id().'.png';
 
 		if (is_file($localUrlServer))

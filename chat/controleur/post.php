@@ -8,7 +8,9 @@
 		if (!isset($_POST['msg_id']))
 		{	
 			$message = new Message();
-			$message->post_message($_POST['thread_id'], $_POST['message']);
+			$ret = $message->post_message($_POST['thread_id'], $_POST['message']);
+			header('Location: index.php?page=message&id='.$_POST['thread_id'].'&error='.$ret.'&offset=last');
+			exit();
 		}
 		// edit
 		else
@@ -22,7 +24,7 @@
 			}
 			else
 			{
-				echo '<p class="alert_ko">Erreur in '.__FILE__.' l.'.__LINE.'.</p>';
+				echo '<p class="alert_ko">Erreur in '.__FILE__.' l.'.__LINE__.'.</p>';
 				exit();
 			}
 		}
