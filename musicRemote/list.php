@@ -12,6 +12,7 @@
 *
 *******************************************************************************/
 
+<<<<<<< HEAD
 	echo '<p id="current">none</p>
 				<p>Sound level :
 					<button type="button" onClick="updateSoundM()">-</button>
