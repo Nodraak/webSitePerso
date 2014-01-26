@@ -5,12 +5,10 @@
 |
 | //error_log(print_r($this, 1)); -> log something to log file of php, dont display it to user
 |
+| mp + notifications
 |
-| page user : need improvement
-| mdp oublie - page make, not completed
-| generic function to split pages and show links
+| mdp oublie - need improvement -> need mail set up
 |
-| source header for every files (author, created, modified, ...)
 | stats en live : nb de co -> removed due to bugs "fetch : non object"
 |
 |
