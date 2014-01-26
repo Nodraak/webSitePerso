@@ -25,6 +25,7 @@
 				{
 					include_once('controleur/home.php');
 				}
+?>
 		</div>
 
 		<?php include_once('vue/footer.php'); ?>

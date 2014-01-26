@@ -27,6 +27,8 @@
 |
 | cp img directory (or maybe git push / clone it)
 |
+| !! WARNING !! be carrefull to img/ dir write rights  (chmod 775 doesnt work, use 777 or better)
+|
 |
 | ===============
 |     CHANGES
