@@ -61,7 +61,7 @@ class Membre
 	}
 	public function get_pseudo()
 	{
-		return substr($this->pseudo, 0, 10);
+		return $this->pseudo;
 	}
 	public function get_signedup()
 	{
@@ -107,7 +107,7 @@ class Membre
 	/* SETTER */
 	public function set_pseudo($nouveauPseudo)
 	{
-		if (!empty($nouveauPseudo) && strlen($nouveauPseudo) < 10)
+		if (!empty($nouveauPseudo))
 		{
 			$this->pseudo = $nouveauPseudo;
 			// bdd update

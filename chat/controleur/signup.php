@@ -28,9 +28,10 @@
 		else
 		{
 			$pass_hache = sha1($_POST['pass']);
+			$pseudo = substr($_POST['pseudo'], 0, 20);
 			
 			$req = $bdd->prepare('INSERT INTO users (pseudo, pass, mail, signedup, lastCo) VALUES (:pseudo, :pass, :mail, NOW(), NOW())');
-			$req->execute(array('pseudo' => $_POST['pseudo'], 'pass' => $pass_hache, 'mail' => $_POST['mail']));
+			$req->execute(array('pseudo' => $pseudo, 'pass' => $pass_hache, 'mail' => $_POST['mail']));
 							
 			echo '<p class="alert_ok">Votre compte a bien été créé.</p>
 					<p>Vous pouvez maintenant vous connecter en <a href="index.php?page=login">cliquant ici</a>.</p>';

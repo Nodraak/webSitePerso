@@ -9,7 +9,8 @@
 	echo '<h2>'.$nb.' membres trouvés :</h2>';
 
 	echo '<table>';
-	foreach ($bdd->query('SELECT id FROM users ORDER BY id ASC') as $data)
+	$users = $bdd->query('SELECT id FROM users ORDER BY id ASC');
+	foreach ($users as $data)
 	{
 		$membre = new Membre($data['id']);
 

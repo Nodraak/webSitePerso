@@ -95,6 +95,7 @@
 				}
 				else
 				{
+					$pseudo = substr($value, 0, 20);
 					$req = $bdd->prepare('UPDATE users SET '.$key.' = ? WHERE id = ?');
 					$req->execute(array($value, $_SESSION['id']));
 					return 0;
