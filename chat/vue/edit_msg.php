@@ -7,7 +7,7 @@
 				<form method=post action=index.php?page=post>
 					<label for=message>Votre mesage :</label>
 				<br />
-					<textarea name=message id=message rows=10 cols=75 required>'.$message->get_text_raw().'</textarea>
+					<textarea name=message id=message rows=20 cols=75 required>'.$message->get_text_raw().'</textarea>
 
 					<input type=hidden name=thread_id value='.$message->get_thread().' />
 					<input type=hidden name=msg_id value='.$_GET['id'].' />
