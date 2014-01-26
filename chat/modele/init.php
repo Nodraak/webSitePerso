@@ -59,7 +59,27 @@
 		$tmp = str_replace('\t', '&nbsp;&nbsp;&nbsp;&nbsp;', $tmp);
 
 		// smiley must be before color (purple)
-		$tmp = str_replace(':p', '<span class="smiley_p"></span>', $tmp);
+		$tmp = str_replace(' :) ', ' <span class="smiley smiley_happy"></span> ', $tmp);
+		$tmp = str_replace(' :D ', ' <span class="smiley smiley_veryHappy"></span> ', $tmp);
+		$tmp = str_replace(' ^^ ', ' <span class="smiley smiley_lol"></span> ', $tmp);
+		$tmp = str_replace(' :3 ', ' <span class="smiley smiley_cat"></span> ', $tmp);
+		$tmp = str_replace(' -_- ', ' <span class="smiley smiley_bored"></span> ', $tmp);
+		$tmp = str_replace(' :p ', ' <span class="smiley smiley_p"></span> ', $tmp);
+		$tmp = str_replace(' ;) ', ' <span class="smiley smiley_wink"></span> ', $tmp);
+		$tmp = str_replace(' :o ', ' <span class="smiley smiley_o"></span> ', $tmp);
+		$tmp = str_replace(' 8| ', ' <span class="smiley smiley_glasses1"></span> ', $tmp);
+		$tmp = str_replace(' 8) ', ' <span class="smiley smiley_glasses2"></span> ', $tmp);
+		$tmp = str_replace(' :* ', ' <span class="smiley smiley_kiss"></span> ', $tmp);
+		$tmp = str_replace(' :love ', ' <span class="smiley smiley_love"></span> ', $tmp);
+		$tmp = str_replace(' o:) ', ' <span class="smiley smiley_angel"></span> ', $tmp);
+		$tmp = str_replace(' 3:) ', ' <span class="smiley smiley_pig"></span> ', $tmp);
+		$tmp = str_replace(' :angry ', ' <span class="smiley smiley_angry1"></span> ', $tmp);
+		$tmp = str_replace(' :Angry ', ' <span class="smiley smiley_angry2"></span> ', $tmp);
+		$tmp = str_replace(' :( ', ' <span class="smiley smiley_sad"></span> ', $tmp);
+		$tmp = str_replace(' :\'( ', ' <span class="smiley smiley_cry"></span> ', $tmp);
+		$tmp = str_replace(' :/ ', ' <span class="smiley smiley_dis"></span> ', $tmp);
+		$tmp = str_replace(' oO ', ' <span class="smiley smiley_wtf"></span> ', $tmp);
+		$tmp = str_replace(' :v ', ' <span class="smiley smiley_pacman"></span> ', $tmp);
 
 		$tmp = preg_replace('#\[b\](.+)\[/b\]#sU', '<span class="bold">$1</span>', $tmp);
 		$tmp = preg_replace('#\[i\](.+)\[/i\]#sU', '<span class="italic">$1</span>', $tmp);

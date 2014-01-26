@@ -70,19 +70,6 @@
 	font-size: xx-large;
 }
 
-/*=== smiley ===**/
-.smiley_p
-{
-	position: relative;
-	top: 5px;
-}
-
-.smiley_p:before
-{
-	content: url(../img/smiley_p.png) " ";
-}
-
-
 /*=== general ===*/
 
 table

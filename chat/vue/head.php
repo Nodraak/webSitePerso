@@ -3,6 +3,7 @@
 <link rel="icon" type="image/png" href="favicon.png">
 <link rel="stylesheet" type="text/css" href="style/global.css" />
 <link rel="stylesheet" type="text/css" href="style/form.css" />
+<link rel="stylesheet" type="text/css" href="style/smiley.css" />
 
 <?php
 	if (!empty($_GET['page']) && is_file('style/'.$_GET['page'].'.css'))

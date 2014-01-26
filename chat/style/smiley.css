@@ -1,0 +1,45 @@
+/******************************************************************************* 
+*
+*   File : smiley.css
+*   Author : Adrien Chardon
+*   Date :   2014-01-26 19:05:10
+*
+*   Last Modified by :   Adrien Chardon
+*   Last Modified time : 2014-01-26 21:31:21
+*
+*******************************************************************************/
+
+/*=== smiley ===**/
+.smiley
+{
+	background: url(../img/smiley.jpg) 0 0 no-repeat;
+	width: 15px;
+	height: 15px;
+	position: relative;
+	top: 3px;
+	display: inline-block;
+}
+
+
+.smiley_happy			{background-position: -8px -14px;}
+.smiley_veryHappy	{background-position: -8px -35px;}
+.smiley_lol				{background-position: -8px -57px;}
+.smiley_cat				{background-position: -8px -78px;}
+.smiley_bored			{background-position: -8px -99px;}
+.smiley_p					{background-position: -8px -120px;}
+.smiley_wink			{background-position: -8px -141px;}
+.smiley_o					{background-position: -8px -163px;}
+.smiley_glasses1	{background-position: -8px -185px;}
+.smiley_glasses2	{background-position: -8px -206px;}
+.smiley_kiss			{background-position: -8px -226px;}
+.smiley_love			{background-position: -8px -250px;}
+.smiley_angel			{background-position: -8px -270px;}
+.smiley_pig				{background-position: -8px -292px;}
+.smiley_angry1		{background-position: -8px -313px;}
+.smiley_angry2		{background-position: -8px -334px;}
+.smiley_sad				{background-position: -8px -355px;}
+.smiley_cry				{background-position: -8px -377px;}
+.smiley_dis				{background-position: -8px -398px;}
+.smiley_wtf				{background-position: -8px -420px;}
+.smiley_pacman		{background-position: -8px -441px;}
+
