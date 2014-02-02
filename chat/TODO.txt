@@ -34,6 +34,7 @@
 |     CHANGES
 | ===============
 |
+| 26/01/14 - a large amount of smiley + fixed bug on max length of pseudo
 | 26/01/14 - anti flood
 |          - change lastCo to lastActivity - done 26 jan
 | 17/01/14 - added git commit hash in footer
