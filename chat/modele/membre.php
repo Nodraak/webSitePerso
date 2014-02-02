@@ -150,17 +150,16 @@ class Membre
 	}
 	public function set_avatar($id)
 	{
-		$localUrlClient = 'http://'.$_SERVER['SERVER_NAME'].':'.$_SERVER['SERVER_PORT'].'/chat/img/'.$this->get_id().'.png';
-		$localUrlServer = 'img/'.$this->get_id().'.png';
+		$matches = glob('img/'.$this->get_id().'.*');
+		$nb = count($matches);
 
-		if (is_file($localUrlServer))
-		{
-			$this->avatar = $localUrlClient;
-		}
+		if ($nb == 0)
+			$this->avatar = 'http://www.gravatar.com/avatar/'.md5(strtolower(trim($id))).'?d=identicon&s=200';	
+		else if ($nb == 1 && is_file($matches[0]))
+			$this->avatar = 'http://'.$_SERVER['SERVER_NAME'].':'.$_SERVER['SERVER_PORT'].'/chat/'.$matches[0];
 		else
-		{
-			$this->avatar = 'http://www.gravatar.com/avatar/'.md5(strtolower(trim($id))).'?d=identicon&s=200';
-		}
+			error_log('ERROR IN FILE '.__FILE__.' LINE '.__LINE__.' >> number of avatar img > 1 for user id='.$id);
+
 	}
 
 }

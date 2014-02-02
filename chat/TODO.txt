@@ -5,6 +5,10 @@
 |
 | //error_log(print_r($this, 1)); -> log something to log file of php, dont display it to user
 |
+| non local avatar are not displayed
+| alt attribut of every img to fix
+| redraw gui of listed thread
+|
 | mp
 | notifications
 | thread en post it
@@ -34,6 +38,8 @@
 |     CHANGES
 | ===============
 |
+| 02/02/14 - added link to reach last page of a thread
+|          - fixed avatar upload
 | 26/01/14 - a large amount of smiley + fixed bug on max length of pseudo
 | 26/01/14 - anti flood
 |          - change lastCo to lastActivity - done 26 jan

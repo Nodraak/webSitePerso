@@ -160,6 +160,7 @@
 
 				if ($nbError == 0)
 				{
+					@unlink($_SESSION['id'].'.*'); /* @ disable warning if no file(s) exist */
 					$newPath = 'img/'.$_SESSION['id'].'.'.$extension_upload;
 					$resultat = move_uploaded_file($_FILES['avatar']['tmp_name'], $newPath);
 

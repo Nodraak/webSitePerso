@@ -15,9 +15,10 @@
 		$membre = new Membre($data['id']);
 
 		echo '<tr>';
-			echo '<td width="30"><img src='.$membre->get_avatar().' alt=avatar style="max-width: 25px; max-height: 25px;" /></td>';
+			echo '<td width="30"><img src='.$membre->get_avatar().' alt="avatar member id='.$membre->get_id().'" style="max-width: 25px; max-height: 25px;" /></td>';
 			echo '<td><a href="?page=user&id='.$membre->get_id().'">'.$membre->get_pseudo().'</a></td>';
 		echo '</tr>';
+		echo "\n";
 	}
 	echo '</table>';
 
