@@ -49,14 +49,6 @@
 			</tr>
 		</table>';
 
-
-
-	echo '<p>
-				<span id="current">Playing : none</span>
-			<br />
-				<button type="button" onClick="getInfo()">get Info</button>
-		</p>';
-
 	$path = '/home/adur/Music/music/';
 
 	$fileAll = scandir($path);

@@ -9,11 +9,10 @@
 var timer;
 var timerOn = 0;
 
+window.onload = checkIfPlaying();
+
 function playMusic(id)
 {
-	var currentMusic = document.getElementById('current');
-	currentMusic.innerHTML = 'Playing : ' + id;
-
 	var xmlHttp = null;
 
 	xmlHttp = new XMLHttpRequest();
@@ -100,8 +99,8 @@ function getInfo()
 	document.getElementById('album').innerHTML = 'Album : ' + data[2];
 	document.getElementById('artist').innerHTML = 'Artiste : ' + data[0];
 
-	document.getElementById('timeCurrent').innerHTML = data[3];
-	document.getElementById('timeLeft').innerHTML = data[4]-data[3];
+	document.getElementById('timeCurrent').innerHTML = timeToStr(data[3]);
+	document.getElementById('timeLeft').innerHTML = timeToStr(data[4]-data[3]);
 
 	if (timerOn == 1)
 		window.clearInterval(timer);
@@ -112,10 +111,7 @@ function getInfo()
 
 function updateInfo()
 {
-	document.getElementById('timeCurrent').innerHTML ++;
-	document.getElementById('timeLeft').innerHTML --;
-
-	if (document.getElementById('timeLeft').innerHTML <= 0)
+	if (strToTime(document.getElementById('timeLeft').innerHTML) <= 0)
 	{
 		if (timerOn == 1)
 		{
@@ -130,6 +126,54 @@ function updateInfo()
 		document.getElementById('timeCurrent').innerHTML = '-';
 		document.getElementById('timeLeft').innerHTML = '-';
 
+	}
+	else if (timerOn == 1)
+	{
+		document.getElementById('timeCurrent').innerHTML = timeToStr(strToTime(document.getElementById('timeCurrent').innerHTML) + 1);
+
+		document.getElementById('timeLeft').innerHTML = timeToStr(strToTime(document.getElementById('timeLeft').innerHTML) - 1);
+	}
+}
+
+function timeToStr(time)
+{
+	var mn = Math.floor(time / 60);
+	var sec = time % 60;
+
+	if (sec < 10)
+		secStr = '0'+sec;
+	else
+		secStr = sec;
+
+	return mn + ':' + secStr;
+}
+
+function strToTime(str)
+{
+	var data = str.split(':');
+	var mn = data[0];
+	var sec = data[1];
+	
+	return parseInt(mn)*60 + parseInt(sec); // and fuck js -> parseInt
+}
+
+function checkIfPlaying()
+{
+	var xmlHttp = null;
+
+	xmlHttp = new XMLHttpRequest();
+	xmlHttp.open('GET', 'play.php?action=getIfPlaying', false);
+	xmlHttp.send(null);
+
+	var ret = xmlHttp.responseText;
+	
+	if (ret == 'PLAY')
+	{
+		getInfo();
+		if (timerOn == 1)
+			window.clearInterval(timer);
+		timer = setInterval(function(){updateInfo()}, 1000);
+		timerOn = 1;
 	}
 }
 

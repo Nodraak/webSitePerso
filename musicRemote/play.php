@@ -10,11 +10,11 @@ if (isset($_GET['action']))
 	// handle action
 	if (strcmp($_GET['action'], 'soundUp') == 0)
 	{
-		exec('mocp -v +1');
+		exec('mocp -v +3');
 	}
 	else if (strcmp($_GET['action'], 'soundDown') == 0)
 	{
-		exec('mocp -v -1');
+		exec('mocp -v -3');
 	}
 	else if (strcmp($_GET['action'], 'playMusic') == 0 && isset($_GET['id']))
 	{
@@ -40,6 +40,10 @@ if (isset($_GET['action']))
 		$data = $ret[0].'#'.$ret[1].'#'.$ret[2].'#'.$ret[4].'#'.$ret[3];
 
 		echo($data);
+	}
+	else if (strcmp($_GET['action'], 'getIfPlaying') == 0)
+	{
+		echo exec('mocp -Q %state');
 	}
 
 }
