@@ -2,13 +2,13 @@
 * @Author: Adrien Chardon
 * @Date:   2014-01-22 11:51:07
 * @Last Modified by:   Adrien Chardon
-* @Last Modified time: 2014-02-06 17:18:38
+* @Last Modified time: 2014-02-06 17:37:02
 */
 
 function playMusic(id)
 {
 	var currentMusic = document.getElementById('current');
-	currentMusic.innerHTML = id;
+	currentMusic.innerHTML = 'Playing : ' + id;
 
 	var xmlHttp = null;
 
@@ -41,3 +41,24 @@ function soundDown()
 	return xmlHttp.responseText;
 }
 
+function play()
+{
+	var xmlHttp = null;
+
+	xmlHttp = new XMLHttpRequest();
+	xmlHttp.open('GET', 'play.php?action=play', true);
+	xmlHttp.send(null);
+	
+	return xmlHttp.responseText;
+}
+
+function pause()
+{
+	var xmlHttp = null;
+
+	xmlHttp = new XMLHttpRequest();
+	xmlHttp.open('GET', 'play.php?action=pause', true);
+	xmlHttp.send(null);
+	
+	return xmlHttp.responseText;
+}

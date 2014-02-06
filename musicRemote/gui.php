@@ -12,12 +12,15 @@
 *
 *******************************************************************************/
 
-	echo '<p id="current">none</p>
-				<p>Sound level :
-					<button type="button" onClick="soundUp()">-</button>
-					<span id="currentLevel">none</span>
-					<button type="button" onClick="soundDown()">+</button>
-				</p>';
+	echo '<p>
+			<span id="current">Playing : none</span><br />
+			Sound level :
+				<button type="button" onClick="soundUp()">-</button>
+				<button type="button" onClick="soundDown()">+</button>
+				<br />
+			<button type="button" onClick="play()">Play</button>
+			<button type="button" onClick="pause()">Pause</button>
+		</p>';
 
 	$path = '/home/adur/Music/music/';
 
