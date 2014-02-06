@@ -12,14 +12,49 @@
 *
 *******************************************************************************/
 
+	echo
+		'<table class="control">
+			<tr>
+				<td>
+					<table class="cell"><tr>
+					<td><button type="button" onClick="play()">Play</button></td>
+					<td><button type="button" onClick="pause()">Pause</button></td>
+					</tr></table>
+				</td>
+				<td id="title">
+					Titre : none
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<table class="cell"><tr>
+					<td><button type="button" onClick="soundDown()">-</button></td>
+					<td><button type="button" onClick="soundUp()">+</button></td>
+					</tr></table>
+				</td>
+				<td id="album">
+					Album : none
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<table class="cell"><tr>
+					<td id="timeCurrent">none</td>
+					<td id="timeLeft">none</td>
+					</tr></table>
+				</td>
+				<td id="artist">
+					Artiste : none
+				</td>
+			</tr>
+		</table>';
+
+
+
 	echo '<p>
-			<span id="current">Playing : none</span><br />
-			Sound level :
-				<button type="button" onClick="soundUp()">-</button>
-				<button type="button" onClick="soundDown()">+</button>
-				<br />
-			<button type="button" onClick="play()">Play</button>
-			<button type="button" onClick="pause()">Pause</button>
+				<span id="current">Playing : none</span>
+			<br />
+				<button type="button" onClick="getInfo()">get Info</button>
 		</p>';
 
 	$path = '/home/adur/Music/music/';

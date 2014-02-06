@@ -5,6 +5,28 @@
 |                        |
 \*----------------------*/
 
+.control td
+{
+	border: 2px solid gray;
+	border-radius: 10px;
+	background-color: rgb(192, 192, 192);
+
+	padding-left: 5px;
+	padding-right: 5px;
+}
+
+.cell td
+{
+	border: none;
+}
+
+.cell tr, .cell
+{
+	width: 100%;
+	text-align: center;
+}
+
+
 .fontSize
 {
 	background-color: rgb(200, 200, 200);
