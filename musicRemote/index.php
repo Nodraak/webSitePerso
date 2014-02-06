@@ -15,20 +15,34 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<title>Page perso d'Adrien ! - Accueil</title>
-		<?php include("head.php"); ?>
+		<title>Page perso d'Adrien ! - MusicRemote</title>
+		<meta charset="utf-8" />
+		<link rel="stylesheet" href="styles.css" />
 	</head>
 
 	<body>
-		<?php include("header.php"); ?>
+		<header>
+			<nav>
+				<ul>
+					<li><a href=index.php>Home</a></li>
+					<li><a href=chat/index.php>Chat</a></li>
+					<li><a href=iteam/index.php>iTeam</a></li>
+					<li><a href=T411_stats/>T411 stats</a></li>
+					<li><a href=musicRemote/>musicRemote</a></li>
+				</ul>
+			</nav>
+		</header>
 
 		<div id="block_page">
 
-		<?php include_once('list.php') ?>
+			<?php include_once('gui.php') ?>
 
 		</div>
 
-		<?php include("footer.php"); ?>
+		<footer>
+			<p>Page perso, aucun droits reservés.</p>
+		</footer>
+
 		<script src="script.js"></script>
 	</body>
 </html>

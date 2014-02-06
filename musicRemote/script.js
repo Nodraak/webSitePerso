@@ -2,45 +2,42 @@
 * @Author: Adrien Chardon
 * @Date:   2014-01-22 11:51:07
 * @Last Modified by:   Adrien Chardon
-* @Last Modified time: 2014-01-23 16:48:12
+* @Last Modified time: 2014-02-06 17:18:38
 */
-
-
-function updateCurrent(id)
-{
-	var current = document.getElementById('current');
-	current.innerHTML = id;
-
-	playMusic(id);
-}
 
 function playMusic(id)
 {
+	var currentMusic = document.getElementById('current');
+	currentMusic.innerHTML = id;
+
 	var xmlHttp = null;
 
 	xmlHttp = new XMLHttpRequest();
-	xmlHttp.open('GET', 'play.php?id='+id, true);
+	xmlHttp.open('GET', 'play.php?action=playMusic&id='+id, true);
 	xmlHttp.send(null);
+
 	return xmlHttp.responseText;
 }
 
-function updateSoundP()
+function soundup()
 {
 	var xmlHttp = null;
 
 	xmlHttp = new XMLHttpRequest();
-	xmlHttp.open('GET', 'play.php?level=P', true);
+	xmlHttp.open('GET', 'play.php?action=soundUp', true);
 	xmlHttp.send(null);
+	
 	return xmlHttp.responseText;
 }
 
-function updateSoundM()
+function soundDown()
 {
 	var xmlHttp = null;
 
 	xmlHttp = new XMLHttpRequest();
-	xmlHttp.open('GET', 'play.php?level=M', true);
+	xmlHttp.open('GET', 'play.php?action=soundDown', true);
 	xmlHttp.send(null);
+	
 	return xmlHttp.responseText;
 }
 

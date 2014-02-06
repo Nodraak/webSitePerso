@@ -1,27 +1,25 @@
 <?php
 
 
-if (isset($_GET['id']))
+if (isset($_GET['action']))
 {
-	$str = 'mpg123 /home/adur/Music/music/'.$_GET['id'].' > /dev/null 2>&1 &';
-	exec($str);
-}
-else if (isset($_GET['level']))
-{
-	$current = exec('amixer cget iface=MIXER,name="Master Playback Volume"|head -n 3 |tail -n 1 |cut -d "=" -f 2');
+	$currentSound = exec('amixer cget iface=MIXER,name="Master Playback Volume"|head -n 3 |tail -n 1 |cut -d "=" -f 2');
 
-	echo 'coucou'.$current;
-
-	if (strcmp($_GET['level'], 'P') == 0)
+	if (strcmp($_GET['action'], 'soundUp') == 0)
 	{
-		$current++;
-		$str = 'amixer cset iface=MIXER,name="Master Playback Volume" '.$current.' > /dev/null';
+		$currentSound++;
+		$str = 'amixer cset iface=MIXER,name="Master Playback Volume" '.$currentSound.' > /dev/null';
 		exec($str);
 	}
-	if (strcmp($_GET['level'], 'M') == 0)
+	else if (strcmp($_GET['action'], 'soundDown') == 0)
 	{
-		$current--;
-		$str = 'amixer cset iface=MIXER,name="Master Playback Volume" '.$current.' > /dev/null';
+		$currentSound--;
+		$str = 'amixer cset iface=MIXER,name="Master Playback Volume" '.$currentSound.' > /dev/null';
+		exec($str);
+	}
+	else if (strcmp($_GET['action'], 'playMusic') == 0 && isset($_GET['id']))
+	{
+			$str = 'mpg123 /home/adur/Music/music/'.$_GET['id'].' > /dev/null 2>&1 &';
 		exec($str);
 	}
 
