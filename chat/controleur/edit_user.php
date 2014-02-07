@@ -78,37 +78,7 @@
 	// post data
 	else
 	{
-		function ft_update_user_info($key, $value)
-		{
-			$bdd = ft_connect_bdd();
-
-			if (strcmp($key, 'pseudo') == 0)
-			{
-				$req_check_pseudo = $bdd->prepare('SELECT id FROM users WHERE pseudo = ?');
-				$req_check_pseudo->execute(array($_POST['pseudo']));
-				$data_check_pseudo = $req_check_pseudo->fetch();
-
-				if ($data_check_pseudo)
-				{
-					echo '<p>Erreur, le pseudo est déja utilisé.</p>';
-					return 1;
-				}
-				else
-				{
-					$pseudo = substr($value, 0, 20);
-					$req = $bdd->prepare('UPDATE users SET '.$key.' = ? WHERE id = ?');
-					$req->execute(array($value, $_SESSION['id']));
-					return 0;
-				}
-			}
-			else
-			{
-				$req = $bdd->prepare('UPDATE users SET '.$key.' = ? WHERE id = ?');
-				$req->execute(array($value, $_SESSION['id']));
-				return 0;
-			}
-		}
-
+		
 		if (!empty($_POST['pseudo']))
 		{
 			if (ft_update_user_info('pseudo', $_POST['pseudo']) == 0)
@@ -139,35 +109,7 @@
 
 		if (isset($_FILES['avatar']))
 		{
-			$nbError = 0;
-
-			if ($_FILES['avatar']['error'] != 0)
-				echo '<p class="alert_ko">Erreur (code = erreur server : '.$_FILES['avatar']['error'].' - contactez l\'administrateur)</p>', $nbError++;
-
-			if ($_FILES['avatar']['size'] > 100000)
-				echo '<p class="alert_ko">Erreur (code = taille en octets)</p>', $nbError++;
-
-			$extensions_valides = array('jpg', 'jpeg', 'gif', 'png');
-			$extension_upload = strtolower(substr(strrchr($_FILES['avatar']['name'], '.'), 1));
-			if (!in_array($extension_upload,$extensions_valides))
-				echo '<p class="alert_ko">Erreur (code = extension non autorisée)</p>', $nbError++;
-
-			if ($nbError == 0)
-			{
-				$image_sizes = getimagesize($_FILES['avatar']['tmp_name']);
-				if ($image_sizes[0] > 200 || $image_sizes[1] > 200)
-					echo '<p class="alert_ko">Erreur (code = taille en pixels)</p>', $nbError++;
-
-				if ($nbError == 0)
-				{
-					@unlink($_SESSION['id'].'.*'); /* @ disable warning if no file(s) exist */
-					$newPath = 'img/'.$_SESSION['id'].'.'.$extension_upload;
-					$resultat = move_uploaded_file($_FILES['avatar']['tmp_name'], $newPath);
-
-					if ($resultat)
-						echo '<p class="alert_ok">Transfert réussi</p>';
-				}
-			}
+			ft_update_avatar(1, $_SESSION['id'], $_FILES['avatar']['name'], $_FILES['avatar']['error'], $_FILES['avatar']['size'], $_FILES['avatar']['tmp_name']);
 		}
 
 		if (!empty($_POST['sign']))
