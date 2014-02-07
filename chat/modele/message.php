@@ -42,6 +42,8 @@
 					$this->thread = $data['thread'];
 					$this->text = $data['text'];
 					$this->isValid = 1;
+
+					$this->updateNotif($_SESSION['id'], $this->thread);
 				}
 				else
 					$this->isValid = 0;
@@ -105,6 +107,7 @@
 			$req = $bdd->prepare('UPDATE threads SET nbMessage = nbMessage+1 WHERE id = ?');
 			$req->execute(array($this->get_thread()));
 		}
+
 		public function post_message($thread_id, $text)
 		{
 			$bdd = ft_connect_bdd();
@@ -140,15 +143,24 @@
 			else
 				return 'anti_flood';
 		}
+
 		public function edit_message($text)
 		{
 			$bdd = ft_connect_bdd();
-
 			$req = $bdd->prepare('UPDATE messages SET text = ?, posted = NOW() WHERE id = ?');
 			$req->execute(array($text, $this->get_id()));
 
 			$this->update_thread_activity();
 		}
+
+		// disable notif
+		private function updateNotif($user, $thread)
+		{
+			$bdd = ft_connect_bdd();
+			$req = $bdd->prepare('UPDATE notifs SET nonRead = 0 WHERE (idMembre = ? AND idThread = ?)');
+			$req->execute(array($user, $thread));
+		}
+		
 	}
 	
 ?>
