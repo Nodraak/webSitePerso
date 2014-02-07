@@ -10,7 +10,6 @@
 | redraw gui of listed thread
 |
 | mp
-| notifications -> in progress
 | thread en post it
 |
 | mdp oublie - need improvement -> need mail set up
@@ -36,6 +35,7 @@
 |     CHANGES
 | ===============
 |
+| 07/02/14 - notifications - some bug must still be present
 | 02/02/14 - added link to reach last page of a thread - need fix
 |          - fixed avatar upload
 | 26/01/14 - a large amount of smiley + fixed bug on max length of pseudo

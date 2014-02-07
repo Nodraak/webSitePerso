@@ -43,7 +43,7 @@
 					$this->text = $data['text'];
 					$this->isValid = 1;
 
-					$this->updateNotif($_SESSION['id'], $this->thread);
+					$this->updateNotifSetOff($_SESSION['id'], $this->thread);
 				}
 				else
 					$this->isValid = 0;
@@ -99,6 +99,8 @@
 
 			$req = $bdd->prepare('UPDATE threads SET activity = NOW() WHERE id = ?');
 			$req->execute(array($this->get_thread()));
+
+			$this->updateNotifSetOn($this->thread);
 		}
 		public function update_thread_nbMessage()
 		{
@@ -118,7 +120,10 @@
 
 			$req_now = $bdd->query('SELECT NOW()');
 			$ret_now = $req_now->fetch();
-	
+
+			// get notif when new msg
+			$this->followThread($this->thread);
+
 			// check anti flood
 			if (strtotime($ret['posted']) + 60*5 < strtotime($ret_now[0]))
 			{
@@ -153,12 +158,38 @@
 			$this->update_thread_activity();
 		}
 
-		// disable notif
-		private function updateNotif($user, $thread)
+		/*=== NOTIF ===*/
+		private function updateNotifSetOff($user, $thread)
 		{
 			$bdd = ft_connect_bdd();
 			$req = $bdd->prepare('UPDATE notifs SET nonRead = 0 WHERE (idMembre = ? AND idThread = ?)');
 			$req->execute(array($user, $thread));
+		}
+
+		private function updateNotifSetOn($thread)
+		{
+			$bdd = ft_connect_bdd();
+			$req = $bdd->prepare('UPDATE notifs SET nonRead = 1 WHERE (idThread = ? AND idMembre != ?)');
+			$req->execute(array($thread, $_SESSION['id']));
+
+			$this->followThread($thread);
+		}
+
+		private function followThread($thread)
+		{
+			$bdd = ft_connect_bdd();
+
+			// check if already followed
+			$req = $bdd->prepare('SELECT id FROM notifs WHERE (idMembre = ? AND idThread = ?)');
+			$req->execute(array($_SESSION['id'], $thread));
+			$ret = $req->rowCount();
+
+			// if not followed
+			if ($ret == 0)
+			{
+				$req = $bdd->prepare('INSERT INTO notifs (idMembre, idThread, nonRead) VALUES (?, ?, 0)');
+				$req->execute(array($_SESSION['id'], $thread));
+			}
 		}
 		
 	}

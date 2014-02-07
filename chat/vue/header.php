@@ -17,8 +17,6 @@ echo '
 	<div class="right">
 		<ul>';
 
-if (isset($_SESSION['id']) && $_SESSION['id'] == 1)
-{
 		include_once('modele/notif.php');
 		$notif = new Notif();
 		if ($notif->isValid)
@@ -34,7 +32,7 @@ if (isset($_SESSION['id']) && $_SESSION['id'] == 1)
 			echo '</ul>
 					</li>';
 		}
-}
+
 		if (isset($_SESSION['pseudo'])) // yet logged
 			echo '<li><a href="index.php?page=logout">Se déconnecter</a></li>';
 		else // not logged yet
