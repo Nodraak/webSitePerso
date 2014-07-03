@@ -40,7 +40,7 @@
 		unset($qsvars[$varname]);
 		$newqs = http_build_query($qsvars);
 		return $urlpart . '?' . $newqs;
-	}
+	}	
 
 	// array of pages authorized for acces without loging
 	$page_acces_not_logged = array('login', 'signup', 'lost_pass');

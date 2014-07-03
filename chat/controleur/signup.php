@@ -1,5 +1,6 @@
 <?php
 	include_once('modele/init.php');
+	include_once('modele/membre.php');
 
 	echo'<h2>Bienvenue futur membre !</h2>';
 
@@ -30,8 +31,11 @@
 			$pass_hache = sha1($_POST['pass']);
 			$pseudo = substr($_POST['pseudo'], 0, 20);
 			
-			$req = $bdd->prepare('INSERT INTO users (pseudo, pass, mail, signedup, lastCo) VALUES (:pseudo, :pass, :mail, NOW(), NOW())');
-			$req->execute(array('pseudo' => $pseudo, 'pass' => $pass_hache, 'mail' => $_POST['mail']));
+			$req = $bdd->prepare('INSERT INTO users (pseudo, pass, mail, signedup, lastCo) VALUES (?, ?, ?, NOW(), NOW())');
+			$req->execute(array($pseudo, $pass_hache, $_POST['mail']));
+
+			// move gravatar img to local dir
+			ft_update_avatar(0, $bdd->lastInsertId());
 							
 			echo '<p class="alert_ok">Votre compte a bien été créé.</p>
 					<p>Vous pouvez maintenant vous connecter en <a href="index.php?page=login">cliquant ici</a>.</p>';

@@ -5,12 +5,10 @@
 |
 | //error_log(print_r($this, 1)); -> log something to log file of php, dont display it to user
 |
-| non local avatar are not displayed
 | alt attribut of every img to fix
 | redraw gui of listed thread
 |
 | mp
-| notifications
 | thread en post it
 |
 | mdp oublie - need improvement -> need mail set up
@@ -31,14 +29,14 @@
 |
 | cp img directory (or maybe git push / clone it)
 |
-| !! WARNING !! be carrefull with img/ directory's write rights (chmod 775 doesnt work, use 777 or better)
-|
 |
 | ===============
 |     CHANGES
 | ===============
 |
-| 02/02/14 - added link to reach last page of a thread
+| 07/02/14 - notifications - some bug must still be present
+|          - non local avatar (from gravatar) were not displayed
+| 02/02/14 - added link to reach last page of a thread - need fix
 |          - fixed avatar upload
 | 26/01/14 - a large amount of smiley + fixed bug on max length of pseudo
 | 26/01/14 - anti flood

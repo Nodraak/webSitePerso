@@ -42,6 +42,8 @@
 					$this->thread = $data['thread'];
 					$this->text = $data['text'];
 					$this->isValid = 1;
+
+					$this->updateNotifSetOff($_SESSION['id'], $this->thread);
 				}
 				else
 					$this->isValid = 0;
@@ -97,6 +99,8 @@
 
 			$req = $bdd->prepare('UPDATE threads SET activity = NOW() WHERE id = ?');
 			$req->execute(array($this->get_thread()));
+
+			$this->updateNotifSetOn($this->thread);
 		}
 		public function update_thread_nbMessage()
 		{
@@ -105,6 +109,7 @@
 			$req = $bdd->prepare('UPDATE threads SET nbMessage = nbMessage+1 WHERE id = ?');
 			$req->execute(array($this->get_thread()));
 		}
+
 		public function post_message($thread_id, $text)
 		{
 			$bdd = ft_connect_bdd();
@@ -115,7 +120,10 @@
 
 			$req_now = $bdd->query('SELECT NOW()');
 			$ret_now = $req_now->fetch();
-	
+
+			// get notif when new msg
+			$this->followThread($this->thread);
+
 			// check anti flood
 			if (strtotime($ret['posted']) + 60*5 < strtotime($ret_now[0]))
 			{
@@ -140,15 +148,50 @@
 			else
 				return 'anti_flood';
 		}
+
 		public function edit_message($text)
 		{
 			$bdd = ft_connect_bdd();
-
 			$req = $bdd->prepare('UPDATE messages SET text = ?, posted = NOW() WHERE id = ?');
 			$req->execute(array($text, $this->get_id()));
 
 			$this->update_thread_activity();
 		}
+
+		/*=== NOTIF ===*/
+		private function updateNotifSetOff($user, $thread)
+		{
+			$bdd = ft_connect_bdd();
+			$req = $bdd->prepare('UPDATE notifs SET nonRead = 0 WHERE (idMembre = ? AND idThread = ?)');
+			$req->execute(array($user, $thread));
+		}
+
+		private function updateNotifSetOn($thread)
+		{
+			$bdd = ft_connect_bdd();
+			$req = $bdd->prepare('UPDATE notifs SET nonRead = 1 WHERE (idThread = ? AND idMembre != ?)');
+			$req->execute(array($thread, $_SESSION['id']));
+
+			$this->followThread($thread);
+		}
+
+		private function followThread($thread)
+		{
+			$bdd = ft_connect_bdd();
+
+			// check if already followed
+			$req = $bdd->prepare('SELECT id FROM notifs WHERE (idMembre = ? AND idThread = ?)');
+			$req->execute(array($_SESSION['id'], $thread));
+			$ret = $req->rowCount();
+
+			// if not followed
+			if ($ret == 0)
+			{
+				$req = $bdd->prepare('INSERT INTO notifs (idMembre, idThread, nonRead) VALUES (?, ?, 0)');
+				$req->execute(array($_SESSION['id'], $thread));
+			}
+		}
+		
 	}
 	
 ?>

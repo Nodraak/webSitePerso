@@ -12,6 +12,8 @@
 *
 *******************************************************************************/
 
+/*=== CONTROL ===*/
+
 	echo
 		'<table class="control">
 			<tr>
@@ -49,17 +51,36 @@
 			</tr>
 		</table>';
 
-	$path = '/home/adur/Musique/music/';
+/*=== LIST TABLE HEADER ===*/
 
-	$fileAll = scandir($path);
+	echo '<table class="list">';
+	echo '<tr>
+					<th>N°</th>
+					<th>Titre</th>
+					<th>Artiste</th>
+					<th>Album</th>
+			</tr>';
 
-	echo "<table>\n";
+/*=== LIST TABLE DATA ===*/
+
+	$fileAll = scandir('/home/adur/Musique/music/');
+	exec('exiftool /home/adur/Musique/music/* | grep Title', $title);
+	exec('exiftool /home/adur/Musique/music/* | grep Artist', $artist);
+	exec('exiftool /home/adur/Musique/music/* | grep Album', $album);
+
+	$i = 0;
 	foreach ($fileAll as $music)
 	{
 		if (strcmp('.', $music) != 0 && strcmp('..', $music) != 0)
 		{
-			echo '<tr><td><button type="button" onClick="playMusic(\''.$music.'\')" id="'.$music.'" >'.$music.'</button></td></tr>';
-			echo "\n";
+			
+			echo '<tr>
+							<td id="listId">'.($i+1).'</td>
+							<td id="listTitle"><button type="button" onClick="playMusic(\''.$music.'\')" id="'.$music.'" >'.substr($title[$i], 34, 30).'</button></td>
+							<td id="listArtist">'.substr($artist[$i], 34, 30).'</td>
+							<td id="listAlbum">'.substr($album[$i], 34, 30).'</td>
+						</tr>';
+			$i++;
 		}
 	}
 	echo '</table>';
