@@ -3,23 +3,25 @@
 
 if (isset($_GET['action']))
 {
-	// start server if not running
-	if (exec('mocp -Q %file ; echo $?'))
+	// if the server is not running start it
+	if (exec('mocp -Q %title ; echo $?'))
 		exec('mocp -S');
+
+	// set music level of the driver to max
+	exec('amixer cset iface=MIXER,name="Master Playback Volume" $VOL > /dev/null');
 
 	// handle action
 	if (strcmp($_GET['action'], 'soundUp') == 0)
 	{
-		exec('mocp -v +3');
+		exec('mocp -v +2');
 	}
 	else if (strcmp($_GET['action'], 'soundDown') == 0)
 	{
-		exec('mocp -v -3');
+		exec('mocp -v -2');
 	}
 	else if (strcmp($_GET['action'], 'playMusic') == 0 && isset($_GET['id']))
 	{
-		exec('mocp -l /home/adur/Music/music/'.$_GET['id']);
-		error_log('try to sstart music');
+		exec('mocp -l /home/adur/Musique/music/'.$_GET['id']);
 	}
 	else if (strcmp($_GET['action'], 'play') == 0)
 	{
@@ -29,23 +31,28 @@ if (isset($_GET['action']))
 	{
 		exec('mocp -P');
 	}
-	else if (strcmp($_GET['action'], 'getInfo') == 0)
-	{
-		exec('mocp -Q	%artist', $ret);
-		exec('mocp -Q	%song', $ret);
-		exec('mocp -Q	%album', $ret);
-		exec('mocp -Q	%ts', $ret);
-		exec('mocp -Q	%cs', $ret);
-
-		$data = $ret[0].'#'.$ret[1].'#'.$ret[2].'#'.$ret[4].'#'.$ret[3];
-
-		echo($data);
-	}
-	else if (strcmp($_GET['action'], 'getIfPlaying') == 0)
-	{
-		echo exec('mocp -Q %state');
-	}
 
 }
+
+/*
+
+mocp -Q %file
+
+2	%state     State
+	%file      File
+4	%title     Title
+	%artist    >Artist
+6	%song      >SongTitle
+	%album     >Album
+8	%tt        >TotalTime
+	%tl        >TimeLeft
+10	%ts        TotalSec
+	%ct        >CurrentTime
+12	%cs        CurrentSec
+	%b         Bitrate
+14	%r         Rate
+
+*/
+
 
 ?>

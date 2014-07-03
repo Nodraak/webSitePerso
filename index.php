@@ -22,8 +22,6 @@
 	</head>
 
 	<body>
-		<?php include("header.php"); ?>
-
 		<div id="block_page">
 
 			<span class="fontSize">

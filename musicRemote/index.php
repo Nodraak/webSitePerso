@@ -21,27 +21,13 @@
 	</head>
 
 	<body>
-		<header>
-			<nav>
-				<ul>
-					<li><a href=index.php>Home</a></li>
-					<li><a href=../chat/index.php>Chat</a></li>
-					<li><a href=../iteam/index.php>iTeam</a></li>
-					<li><a href=../T411_stats/>T411 stats</a></li>
-					<li><a href=../musicRemote/>musicRemote</a></li>
-				</ul>
-			</nav>
-		</header>
-
 		<div id="block_page">
 
 			<?php include_once('gui.php') ?>
 
 		</div>
 
-		<footer>
-			<p>Page perso, aucun droits reservés.</p>
-		</footer>
+		<?php include_once('../footer.php') ?>
 
 		<script src="script.js"></script>
 	</body>

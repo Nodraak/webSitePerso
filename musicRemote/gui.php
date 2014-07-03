@@ -49,7 +49,7 @@
 			</tr>
 		</table>';
 
-	$path = '/home/adur/Music/music/';
+	$path = '/home/adur/Musique/music/';
 
 	$fileAll = scandir($path);
 
